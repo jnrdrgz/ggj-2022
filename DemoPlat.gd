@@ -11,3 +11,5 @@ func _ready():
 		$blue.show()
 		$red.hide()
 		
+
+	

@@ -4,6 +4,7 @@ export (int) var speed = 200
 export (int) var climbing_speed = 200
 export (int) var jump_speed = -1200
 export (int) var gravity = 1500
+export (float) var plus_time_action = 1.0
 export (bool) var player2 = false
 var player = null
 
@@ -22,6 +23,8 @@ onready var start_position = global_position
 var next_action_to_excute = null
 var next_action_to_excute_time = 0
 
+var action_count = 0
+
 func _ready():
 	#$Camera2D.global_position.x = global_position.x - 50
 	#$Camera2D.global_position.y = global_position.y
@@ -29,7 +32,23 @@ func _ready():
 	#	$Camera2D.current = false
 		#$Camera2D.queue_free()
 	player = get_parent().get_node("Player")
+
+func _physics_process(delta):
+	get_recording()
+	pass
 	
+func get_recording():
+	action_count += 1
+	var test = player.player_movements_queue_all.pop_back()#load_data.get(String(count))
+	yield(get_tree().create_timer(3), "timeout")
+	if(test != null):
+		#print(test[1])
+		play_anim(test[0])
+		global_position = test[1]
+		sprite.flip_h = test[2]
+		sprite.flip_v = test[3]
+		
+
 func get_input():
 	velocity.x = 0
 	if Input.is_action_pressed("walk_right"):
@@ -60,7 +79,7 @@ func get_input():
 			play_anim("downing")
 		
 		
-func _physics_process(delta):
+func _physics_process_back(delta):
 	velocity.x = 0
 	if player:
 		if len(player.player_movements_queue) != 0 and next_action_to_excute == null:
@@ -68,7 +87,7 @@ func _physics_process(delta):
 			yield(get_tree().create_timer(delay), "timeout")
 			next_action_to_excute = act[0]
 			next_action_to_excute_time = float(act[1])
-			$ActionTimer.set_wait_time(next_action_to_excute_time/1000.0)
+			$ActionTimer.set_wait_time((next_action_to_excute_time/1000.0)*plus_time_action)
 			$ActionTimer.one_shot = true
 			$ActionTimer.start()
 	

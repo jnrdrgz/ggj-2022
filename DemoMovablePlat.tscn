@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/demo_bold_plat2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/demo_bold_plat.png" type="Texture" id=2]
+[ext_resource path="res://DemoMovablePlat.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 60.2569, 25.4582 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 60, 25 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -14, 26 ), Vector2( 125, 25 ), Vector2( 242, 26 ), Vector2( 114, 25 ), Vector2( -14, 26 ) ]
+}
+
+[node name="MovablePlat" type="StaticBody2D"]
+position = Vector2( 75, 0 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 60, 25 )
+shape = SubResource( 1 )
+
+[node name="blue" type="Sprite" parent="CollisionShape2D"]
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": ""
+}
+
+[node name="red" type="Sprite" parent="CollisionShape2D"]
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": ""
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/move = SubResource( 3 )

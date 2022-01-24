@@ -20,6 +20,7 @@ func play_anim(anim):
 onready var start_position = global_position
 
 var player_movements_queue = []
+var player_movements_queue_all = []
 var action_time = 0
 var time_in_action_jump = 0
 var action_time_tigrered = false
@@ -55,11 +56,10 @@ func get_input():
 	elif Input.is_action_just_released("walk_right"):
 		var time_in_action = OS.get_ticks_msec() - action_time
 		action_time_tigrered = false
-		player_movements_queue.push_back(["walk_right", time_in_action])
+		#player_movements_queue.push_back(["walk_right", time_in_action])
 		if jump_action_in_queue:
-			if !player_movements_queue[len(player_movements_queue)-1][0] == "jump":
-				player_movements_queue.push_back(["jump", 0])
-				jump_action_in_queue = false
+			#player_movements_queue.push_back(["jump", 0])
+			jump_action_in_queue = false
 			
 		#print(player_movements_queue)
 		
@@ -75,9 +75,9 @@ func get_input():
 	elif Input.is_action_just_released("walk_left"):
 		var time_in_action = OS.get_ticks_msec() - action_time
 		action_time_tigrered = false
-		player_movements_queue.push_back(["walk_left", time_in_action])
+		#player_movements_queue.push_back(["walk_left", time_in_action])
 		if jump_action_in_queue:
-			player_movements_queue.push_back(["jump", 0])
+			#player_movements_queue.push_back(["jump", 0])
 			jump_action_in_queue = false
 
 	elif Input.is_action_pressed("up_arrow"):
@@ -96,25 +96,39 @@ func get_input():
 			play_anim("climbing_idle")
 		if is_on_floor():
 			play_anim("idle")		
+
+func do_record():
+	#count += 1
+	#save_data[String(count)] = 
+	player_movements_queue_all.push_back(
+		[anim_player.current_animation, global_position, sprite.flip_h, sprite.flip_v])
+	#if(Input.is_action_just_pressed("ui_down")):
+	#if(Input.is_action_just_pressed("ui_down")):
+	#	var f := File.new()
+	#	f.open("res://ghosts/" + get_tree().current_scene.name + ".json", File.WRITE)
+	#	prints("Saving to", f.get_path_absolute())
+	#	f.store_string(JSON.print(save_data))
+	#	f.close()
+
 		
 func _physics_process(delta):
+	do_record()
 	get_input()
 	if(!is_in_ladder):
 		velocity.y += gravity * delta
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if Input.is_action_just_pressed("jump"):
-		jump_action_in_queue = true
-		var time_in_action = OS.get_ticks_msec() - time_in_action_jump
 		if is_on_floor():
+			#player_movements_queue.push_back(["jump", 0.1])
 			velocity.y = jump_speed
+			#jump_action_in_queue = true
+			#var time_in_action = OS.get_ticks_msec() - time_in_action_jump
+		
 	elif Input.is_action_just_released("jump"):
-		if !Input.is_action_pressed("walk_left") or !Input.is_action_pressed("walk_right"):
-		#if jump_action_in_queue:
-			var time_in_action_jump = OS.get_ticks_msec() - action_time
-			action_time_tigrered = false
-			player_movements_queue.push_back(["jump", time_in_action_jump])
-	
+		#var time_in_action_jump = OS.get_ticks_msec() - action_time
+		action_time_tigrered = false
+		
 	if !is_on_floor() and !is_in_ladder:
 		if !is_in_ladder:
 			play_anim("jumping")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://DemoPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/fondo.jpg" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ladder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://DemoMovablePlat.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 909.763, 135.008 )
@@ -32,8 +33,14 @@ position = Vector2( 4, 110.5 )
 points = PoolVector2Array( 13, 0, 12.8571, 221.905 )
 
 [node name="Ladder2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 298, -16 )
-scale = Vector2( 1.17637, 4.52584 )
+position = Vector2( 648, -1 )
+
+[node name="CollisionShape2D" parent="Ladder2/Area2D" index="0"]
+position = Vector2( 4, 110.5 )
+
+[node name="Line2D" parent="Ladder2" index="1"]
+position = Vector2( -353, -11 )
+points = PoolVector2Array( 13, 0, 12.8571, 221.905 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 565, 153 )
@@ -60,6 +67,14 @@ scale = Vector2( 0.348603, 0.35 )
 
 [node name="Plat4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 97, 141 )
+scale = Vector2( 0.348603, 0.35 )
+
+[node name="Plat12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 523, 2 )
+scale = Vector2( 0.348603, 0.35 )
+
+[node name="Plat13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 375, 37 )
 scale = Vector2( 0.348603, 0.35 )
 
 [node name="Plat5" parent="." instance=ExtResource( 1 )]
@@ -90,8 +105,14 @@ scale = Vector2( 3.03322, 0.801256 )
 position = Vector2( 521, 152 )
 scale = Vector2( 0.5, 0.5 )
 jump_speed = -450
+plus_time_action = 0.8
+
+[node name="MovablePlat" parent="." instance=ExtResource( 6 )]
+position = Vector2( 330, 145 )
+scale = Vector2( 0.5, 0.5 )
 
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_DeathZone_body_entered"]
 [connection signal="body_entered" from="DeathZone" to="Player2" method="_on_DeathZone_body_entered"]
 
 [editable path="Ladder"]
+[editable path="Ladder2"]
