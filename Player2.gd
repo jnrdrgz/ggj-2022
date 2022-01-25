@@ -199,3 +199,6 @@ func set_object_queue(q: Array):
 func _on_ActionTimer_timeout():
 	print("time")
 	next_action_to_excute = null
+
+func respawn():
+	global_position = start_position

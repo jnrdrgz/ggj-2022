@@ -72,7 +72,6 @@ __meta__ = {
 }
 
 [connection signal="button_down" from="SaltarButton" to="." method="_on_SaltarButton_button_down"]
-[connection signal="pressed" from="SaltarButton" to="." method="_on_SaltarButton_pressed"]
 [connection signal="pressed" from="GoButton" to="." method="_on_GoButton_pressed"]
 [connection signal="button_down" from="AgacharButton" to="." method="_on_AgacharButton_button_down"]
 [connection signal="button_up" from="AgacharButton" to="." method="_on_AgacharButton_button_up"]

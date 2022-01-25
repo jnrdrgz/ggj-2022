@@ -139,3 +139,6 @@ func set_is_in_ladder(b):
 func _on_DeathZone_body_entered(body):
 	player_movements_queue = []
 	global_position = start_position
+
+func respawn():
+	global_position = start_position
