@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player2Controller.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -552.0
+margin_bottom = -498.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaltarButton" type="Button" parent="."]
+margin_left = 66.0
+margin_top = 4.0
+margin_right = 125.0
+margin_bottom = 24.0
+text = "SALTAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoButton" type="Button" parent="."]
+margin_left = 195.0
+margin_top = 35.0
+margin_right = 254.0
+margin_bottom = 55.0
+text = "GO"
+
+[node name="AgacharButton" type="Button" parent="."]
+margin_left = 58.0
+margin_top = 68.0
+margin_right = 133.0
+margin_bottom = 88.0
+text = "AGACHAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DerechaButton" type="Button" parent="."]
+margin_left = 104.0
+margin_top = 36.0
+margin_right = 175.0
+margin_bottom = 56.0
+text = "DERECHA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IzquierdaButton" type="Button" parent="."]
+margin_left = 3.0
+margin_top = 35.0
+margin_right = 88.0
+margin_bottom = 55.0
+text = "IZQUIERDA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionTimer" type="Timer" parent="."]
+
+[node name="Player2Actions" type="RichTextLabel" parent="."]
+margin_left = 265.0
+margin_top = 1.0
+margin_right = 411.0
+margin_bottom = 124.0
+text = "Actions:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="SaltarButton" to="." method="_on_SaltarButton_button_down"]
+[connection signal="pressed" from="SaltarButton" to="." method="_on_SaltarButton_pressed"]
+[connection signal="pressed" from="GoButton" to="." method="_on_GoButton_pressed"]
+[connection signal="button_down" from="AgacharButton" to="." method="_on_AgacharButton_button_down"]
+[connection signal="button_up" from="AgacharButton" to="." method="_on_AgacharButton_button_up"]
+[connection signal="button_down" from="DerechaButton" to="." method="_on_DerechaButton_button_down"]
+[connection signal="button_up" from="DerechaButton" to="." method="_on_DerechaButton_button_up"]
+[connection signal="pressed" from="DerechaButton" to="." method="_on_DerechaButton_pressed"]
+[connection signal="button_down" from="IzquierdaButton" to="." method="_on_IzquierdaButton_button_down"]
+[connection signal="button_up" from="IzquierdaButton" to="." method="_on_IzquierdaButton_button_up"]

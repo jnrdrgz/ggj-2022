@@ -5,12 +5,12 @@
 [ext_resource path="res://DemoMovablePlat.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 60.2569, 25.4582 )
+extents = Vector2( 60.8142, 24.5 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -19,48 +19,59 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 60, 25 ) ]
+"values": [ Vector2( 75, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "move"
-length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -14, 26 ), Vector2( 125, 25 ), Vector2( 242, 26 ), Vector2( 114, 25 ), Vector2( -14, 26 ) ]
+"values": [ Vector2( 75, 0 ), Vector2( 161, 0 ) ]
 }
 
-[node name="MovablePlat" type="StaticBody2D"]
+[node name="MovablePlat" type="KinematicBody2D"]
 position = Vector2( 75, 0 )
+collision_layer = 3
+collision_mask = 3
+motion/sync_to_physics = true
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 60, 25 )
-shape = SubResource( 1 )
+[node name="Sprite" type="Node2D" parent="."]
+position = Vector2( -75, 0 )
 
-[node name="blue" type="Sprite" parent="CollisionShape2D"]
+[node name="blue" type="Sprite" parent="Sprite"]
+position = Vector2( 61, 27 )
 texture = ExtResource( 2 )
 __meta__ = {
-"_edit_lock_": true,
 "_editor_description_": ""
 }
 
-[node name="red" type="Sprite" parent="CollisionShape2D"]
+[node name="red" type="Sprite" parent="Sprite"]
+position = Vector2( 61, 26 )
 texture = ExtResource( 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_editor_description_": ""
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -13.8142, 26.5 )
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
 anims/RESET = SubResource( 2 )
 anims/move = SubResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
