@@ -1,59 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/sprChest_0-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://MagicaDispenser.gd" type="Script" id=2]
-
-[sub_resource type="Shader" id=4]
-code = "/* 
-Rainbow outline by @Farfalk and @ThePadDev, July 2021
-
-Apply to canvas items with transparent backgrounds.
-Check that there is sufficient transparent background space for the outline!
-
-CC0 License (but citation is welcome <3)
-*/
-
-shader_type canvas_item;
-
-uniform float line_thickness : hint_range(0, 20) = 1.0;    // thickness of the line
-uniform float sin_frequency : hint_range(0.1, 2.0) = 0.5;  // frequency of the rainbow
-uniform float sin_offset : hint_range(0.0, 360.0) = 0.0;   // offset of the rainbow, useful to differentiate objects using the same shader
-uniform float light_offset : hint_range(0.25, 0.77) = 0.5;   // this offsets all color channels; if set to 0 only red green and blue colors will be shown.
-uniform bool activate = false;
-
-void fragment() {
-	if(activate){
-		vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
-	
-		float outline = texture(TEXTURE, UV + vec2(-size.x, 0)).a;
-		outline += texture(TEXTURE, UV + vec2(0, size.y)).a;
-		outline += texture(TEXTURE, UV + vec2(size.x, 0)).a;
-		outline += texture(TEXTURE, UV + vec2(0, -size.y)).a;
-		outline += texture(TEXTURE, UV + vec2(-size.x, size.y)).a;
-		outline += texture(TEXTURE, UV + vec2(size.x, size.y)).a;
-		outline += texture(TEXTURE, UV + vec2(-size.x, -size.y)).a;
-		outline += texture(TEXTURE, UV + vec2(size.x, -size.y)).a;
-		outline = min(outline, 1.0);
-	
-		vec4 animated_line_color = vec4(light_offset + sin(2.0*3.14*sin_frequency*TIME),
-							   light_offset + sin(2.0*3.14*sin_frequency*TIME + radians(120.0)),
-							   light_offset + sin(2.0*3.14*sin_frequency*TIME + radians(240.0)),
-							   1.0);
-	
-		vec4 color = texture(TEXTURE, UV);
-		COLOR = mix(color, animated_line_color, outline - color.a);
-	} else {
-		COLOR = texture(TEXTURE, UV);
-	}
-}"
-
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
-shader_param/line_thickness = 1.0
-shader_param/sin_frequency = 0.247
-shader_param/sin_offset = 0.0
-shader_param/light_offset = 0.5
-shader_param/activate = false
+[ext_resource path="res://ShadersMaterials/MagicalMaterial.tres" type="Material" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -111,10 +60,10 @@ resource_name = "shake_and_open"
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4, 0.8, 1, 1.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
@@ -123,14 +72,14 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:rotation_degrees")
-tracks/1/interp = 1
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4, 0.8, 1, 1.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
+"update": 1,
 "values": [ 0.0, -9.43386, 10.6737, -10.2357, 0.0 ]
 }
 tracks/2/type = "value"
@@ -165,7 +114,7 @@ extents = Vector2( 10, 7.5 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 5 )
+material = ExtResource( 3 )
 position = Vector2( 10, 6 )
 texture = ExtResource( 1 )
 hframes = 2
@@ -182,4 +131,5 @@ visible = false
 position = Vector2( 10, 7.5 )
 shape = SubResource( 3 )
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="OpenArea" to="." method="_on_OpenArea_body_entered"]

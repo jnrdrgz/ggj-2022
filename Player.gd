@@ -21,6 +21,8 @@ onready var start_position = global_position
 
 var player_movements_queue = []
 var player_movements_queue_all = []
+var back_in_time_movs = []
+var player_movements_to_back_in_time = []
 var action_time = 0
 var time_in_action_jump = 0
 var action_time_tigrered = false
@@ -98,6 +100,9 @@ func get_input():
 			play_anim("idle")		
 
 func do_record():
+	#if(time_travel)
+	player_movements_to_back_in_time.push_back(
+		[anim_player.current_animation, global_position, sprite.flip_h, sprite.flip_v])
 	#count += 1
 	#save_data[String(count)] = 
 	player_movements_queue_all.push_back(
@@ -110,8 +115,32 @@ func do_record():
 	#	f.store_string(JSON.print(save_data))
 	#	f.close()
 
+var back_in_time_action_count = 0
+func get_recording():
+	back_in_time_action_count += 1
+	var test = back_in_time_movs.pop_back()#load_data.get(String(count))
+	if(test != null):
+		#print(test[1])
+		var space = 0
+		play_anim(test[0])
+		sprite.flip_h = test[2]
+		sprite.flip_v = test[3]
+		global_position = test[1]
 		
+func get_back_in_time_array():
+	for m in player_movements_to_back_in_time:
+		back_in_time_movs.append(m)	
+	#back_in_time_movs.invert()
+
+func go_back_in_time():
+	if back_in_time_action_count == 0:
+		get_back_in_time_array()
+	get_recording()
+	
 func _physics_process(delta):
+	if Input.is_action_pressed("test_reverse"):
+		go_back_in_time()
+		return
 	do_record()
 	get_input()
 	if(!is_in_ladder):
