@@ -101,8 +101,14 @@ func get_input():
 
 func do_record():
 	#if(time_travel)
+	#print("test", len(player_movements_to_back_in_time))
 	player_movements_to_back_in_time.push_back(
 		[anim_player.current_animation, global_position, sprite.flip_h, sprite.flip_v])
+	
+	if(len(player_movements_to_back_in_time) > 13000):
+		print("limit")
+		player_movements_to_back_in_time.pop_front()
+	#print()
 	#count += 1
 	#save_data[String(count)] = 
 	player_movements_queue_all.push_back(
@@ -141,6 +147,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("test_reverse"):
 		go_back_in_time()
 		return
+	if Input.is_action_just_released("test_reverse"):
+		player_movements_to_back_in_time.clear()
+		back_in_time_movs.clear()
+		back_in_time_action_count = 0
+		return
+		
 	do_record()
 	get_input()
 	if(!is_in_ladder):

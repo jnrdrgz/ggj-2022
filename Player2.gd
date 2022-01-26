@@ -202,3 +202,5 @@ func _on_ActionTimer_timeout():
 
 func respawn():
 	global_position = start_position
+
+

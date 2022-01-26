@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-enum colorenum {RED,BLUE}
+enum colorenum {RED,BLUE,TRANS}
 export (colorenum) var color = colorenum.RED
 
 func _ready():
@@ -10,6 +10,10 @@ func _ready():
 	if color == colorenum.BLUE:
 		$blue.show()
 		$red.hide()
+	if color == colorenum.TRANS:
+		$red.hide()
+		$blue.hide()
+		
 		
 
 	
