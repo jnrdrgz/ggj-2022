@@ -156,6 +156,7 @@ func _physics_process(delta):
 	#	custom_is_on_floor = true
 		
 	if Input.is_action_pressed("test_reverse"):
+		do_record()
 		go_back_in_time()
 		return
 	if Input.is_action_just_released("test_reverse"):

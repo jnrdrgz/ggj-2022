@@ -52,5 +52,5 @@ func _on_IzquierdaButton_button_up():
 	has_to_update_text = false
 
 func _on_GoButton_pressed():
-	print(get_parent().get_node("Player2").set_object_queue(player_movements_queue))
+	print(get_parent().get_parent().get_node("Player2").set_object_queue(player_movements_queue))
 	player_movements_queue.clear()

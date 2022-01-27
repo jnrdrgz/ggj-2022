@@ -1,0 +1,33 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 502.0
+margin_bottom = 357.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 498, 354 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="."]
+margin_left = 508.0
+margin_top = 5.0
+margin_right = 1006.0
+margin_bottom = 503.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer2"]
+size = Vector2( 498, 498 )
+handle_input_locally = false
+render_target_update_mode = 3

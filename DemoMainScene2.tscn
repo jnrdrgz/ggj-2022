@@ -96,7 +96,6 @@ scale = Vector2( 3.03322, 0.801256 )
 [node name="Player2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 521, 152 )
 scale = Vector2( 0.5, 0.5 )
-jump_speed = -450
 plus_time_action = 0.8
 
 [connection signal="body_entered" from="DeathZone" to="Player" method="_on_DeathZone_body_entered"]

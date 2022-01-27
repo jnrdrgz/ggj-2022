@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 200
 export (int) var climbing_speed = 200
-export (int) var jump_speed = -1200
+export (int) var jump_speed = -450
 export (int) var gravity = 1500
 export (float) var plus_time_action = 1.0
 export (bool) var player2 = false

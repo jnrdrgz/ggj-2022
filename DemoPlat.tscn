@@ -5,7 +5,7 @@
 [ext_resource path="res://DemoPlat.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 60.5, 22.9417 )
+extents = Vector2( 60.6875, 22.9417 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 26.0192
@@ -31,13 +31,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 60.5, 25.4675 )
+position = Vector2( 59.6875, 25 )
 shape = SubResource( 1 )
 
 [node name="GraceZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GraceZone"]
-position = Vector2( -8, 10 )
+position = Vector2( -2, 8 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="GraceZone"]
