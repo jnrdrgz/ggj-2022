@@ -4,12 +4,17 @@ export (int) var speed = 200
 export (int) var climbing_speed = 200
 export (int) var jump_speed = -450
 export (int) var gravity = 1500
+export (int) var floor_timer_limit = 1
 export (bool) var player2 = false
 
 
 var is_in_ladder = false
 var velocity = Vector2.ZERO
 
+var custom_is_on_floor = false
+var is_in_grace_zone = false
+
+onready var floor_timer = $FloorTimer
 onready var sprite = $Sprite
 onready var anim_player = $AnimationPlayer
 func play_anim(anim):
@@ -34,7 +39,8 @@ func _ready():
 	#if player2:
 	#	$Camera2D.current = false
 		#$Camera2D.queue_free()
-	pass
+	floor_timer.set_wait_time(floor_timer_limit)
+
 
 #func action_seconds(action, seconds):
 
@@ -144,6 +150,11 @@ func go_back_in_time():
 	get_recording()
 	
 func _physics_process(delta):
+	#if !is_on_floor():
+	#	floor_timer.start()
+	#else:
+	#	custom_is_on_floor = true
+		
 	if Input.is_action_pressed("test_reverse"):
 		go_back_in_time()
 		return
@@ -160,7 +171,7 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+		if is_on_floor() or is_in_grace_zone:
 			#player_movements_queue.push_back(["jump", 0.1])
 			velocity.y = jump_speed
 			#jump_action_in_queue = true
@@ -183,3 +194,7 @@ func _on_DeathZone_body_entered(body):
 
 func respawn():
 	global_position = start_position
+
+
+func _on_FloorTimer_timeout():
+	custom_is_on_floor = false

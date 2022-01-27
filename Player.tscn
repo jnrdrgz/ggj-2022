@@ -141,3 +141,8 @@ current = true
 zoom = Vector2( 0.25, 0.25 )
 
 [node name="ActionTimer" type="Timer" parent="."]
+
+[node name="FloorTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="FloorTimer" to="." method="_on_FloorTimer_timeout"]
