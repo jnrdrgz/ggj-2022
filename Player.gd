@@ -15,6 +15,7 @@ var custom_is_on_floor = false
 var is_in_grace_zone = false
 
 onready var floor_timer = $FloorTimer
+onready var has_to_go_back_in_time_timer = $HasToGoBackInTimeTimer
 onready var sprite = $Sprite
 onready var anim_player = $AnimationPlayer
 func play_anim(anim):
@@ -30,8 +31,11 @@ var back_in_time_movs = []
 var player_movements_to_back_in_time = []
 var action_time = 0
 var time_in_action_jump = 0
+var has_to_go_back_in_time_time : int = 2
+
 var action_time_tigrered = false
 var jump_action_in_queue = false
+var has_to_go_back_in_time : bool = false
 
 func _ready():
 	#$Camera2D.global_position.x = global_position.x - 50
@@ -40,7 +44,15 @@ func _ready():
 	#	$Camera2D.current = false
 		#$Camera2D.queue_free()
 	floor_timer.set_wait_time(floor_timer_limit)
+	has_to_go_back_in_time_timer.set_wait_time(has_to_go_back_in_time_time)
 
+func go_back_in_time_clock(seconds=0):
+	has_to_go_back_in_time = true
+	if seconds == 0:
+		seconds = has_to_go_back_in_time_time
+		has_to_go_back_in_time_timer.set_wait_time(seconds)
+
+	has_to_go_back_in_time_timer.start()
 
 #func action_seconds(action, seconds):
 
@@ -154,7 +166,12 @@ func _physics_process(delta):
 	#	floor_timer.start()
 	#else:
 	#	custom_is_on_floor = true
-		
+	
+	if has_to_go_back_in_time:
+		do_record()
+		go_back_in_time()
+		return
+	
 	if Input.is_action_pressed("test_reverse"):
 		do_record()
 		go_back_in_time()
@@ -199,3 +216,7 @@ func respawn():
 
 func _on_FloorTimer_timeout():
 	custom_is_on_floor = false
+
+
+func _on_HasToGoBackInTimeTimer_timeout():
+	has_to_go_back_in_time = false	

@@ -7,8 +7,8 @@ onready var magicalObjectScenePath = "res://MagicalFlyingObjectInherited.tscn"
 
 export (int) var max_objects
 export (int) var time_between_objects = 4
+export (int) var object_per_throw = 1
 var throwed_objects = 0
-var object_per_throw = 1
 
 #export (int) var dispenser_type
 #var posible_types
@@ -53,6 +53,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_DispenseAnotherTimer_timeout():
 	for i in range(object_per_throw):
-		throw_magical_object()
-		throwed_objects += 1
-		#yield timer
+		if max_objects != 0 and max_objects > throwed_objects:
+			throw_magical_object()
+			throwed_objects += 1
+			#yield timer

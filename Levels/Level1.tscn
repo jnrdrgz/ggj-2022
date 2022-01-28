@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://SceneChangerTester.tscn" type="PackedScene" id=6]
 [ext_resource path="res://MagicaDispenser.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ChandlerAttackUpFire.tscn" type="PackedScene" id=8]
+[ext_resource path="res://BackInTimeClock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Chandelier.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1361, 22.9417 )
@@ -39,30 +41,67 @@ visible = false
 position = Vector2( -112, 492 )
 scale = Vector2( 0.7, 0.359 )
 
-[node name="Plat2" parent="Platforms" index="2" instance=ExtResource( 3 )]
+[node name="Plat5" parent="Platforms" index="2" instance=ExtResource( 3 )]
+position = Vector2( 513, 490 )
+scale = Vector2( 0.109773, 0.824264 )
+
+[node name="Plat6" parent="Platforms" index="3" instance=ExtResource( 3 )]
+position = Vector2( 556, 461 )
+scale = Vector2( 0.109773, 0.824264 )
+
+[node name="Plat10" parent="Platforms" index="4" instance=ExtResource( 3 )]
+position = Vector2( 1169, 481 )
+scale = Vector2( 0.223842, 0.295924 )
+
+[node name="Plat12" parent="Platforms" index="5" instance=ExtResource( 3 )]
+position = Vector2( 1233, 458 )
+scale = Vector2( 0.269763, 0.271728 )
+
+[node name="Plat11" parent="Platforms" index="6" instance=ExtResource( 3 )]
+position = Vector2( 1275, 424 )
+scale = Vector2( 0.309763, 0.304266 )
+
+[node name="Plat7" parent="Platforms" index="7" instance=ExtResource( 3 )]
+position = Vector2( 469, 455 )
+scale = Vector2( 0.109773, 0.824264 )
+
+[node name="Plat2" parent="Platforms" index="8" instance=ExtResource( 3 )]
 position = Vector2( 56, 402 )
 scale = Vector2( 4.49529, 1.09542 )
 
-[node name="Plat3" parent="Platforms" index="3" instance=ExtResource( 3 )]
-position = Vector2( 481, 494 )
+[node name="Plat3" parent="Platforms" index="9" instance=ExtResource( 3 )]
+position = Vector2( 731, 476 )
 scale = Vector2( 0.72, 0.35 )
 
-[node name="Plat4" parent="Platforms" index="4" instance=ExtResource( 3 )]
+[node name="Plat8" parent="Platforms" index="10" instance=ExtResource( 3 )]
+position = Vector2( 1317, 395 )
+scale = Vector2( 2.78939, 0.392284 )
+
+[node name="Plat4" parent="Platforms" index="11" instance=ExtResource( 3 )]
+position = Vector2( 598, 139 )
+scale = Vector2( 0.303825, 6 )
+
+[node name="Plat9" parent="Platforms" index="12" instance=ExtResource( 3 )]
 position = Vector2( 598, 139 )
 scale = Vector2( 0.303825, 6 )
 
 [node name="ChandlerUpAttack" parent="Objects" index="0" instance=ExtResource( 8 )]
-position = Vector2( 208, 380 )
+position = Vector2( 1086, 505 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Chandelier" parent="Objects" index="1" instance=ExtResource( 10 )]
+position = Vector2( 1408, 376 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MagicaDispenser" parent="ObjectDispensers" index="0" instance=ExtResource( 7 )]
 position = Vector2( 551, 390 )
 
 [node name="MagicaDispenser2" parent="ObjectDispensers" index="1" instance=ExtResource( 7 )]
-position = Vector2( -231, 511 )
+position = Vector2( -231, 518 )
+max_objects = 4
 
 [node name="Player" parent="." index="5" instance=ExtResource( 5 )]
-position = Vector2( -307, 492 )
+position = Vector2( -290, 487 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Player2" parent="." index="6" instance=ExtResource( 4 )]
@@ -79,6 +118,10 @@ position = Vector2( 2029, 386 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/StaticBody2D" index="0"]
 position = Vector2( -384, 274 )
 shape = SubResource( 2 )
+
+[node name="BackInTimeClock" parent="." index="10" instance=ExtResource( 9 )]
+position = Vector2( 761, 462 )
+time_back = 6
 
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
 
