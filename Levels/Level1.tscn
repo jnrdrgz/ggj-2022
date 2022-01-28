@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://SceneChangerTester.tscn" type="PackedScene" id=6]
 [ext_resource path="res://MagicaDispenser.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ChandlerAttackUpFire.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1361, 22.9417 )
@@ -50,8 +51,15 @@ scale = Vector2( 0.72, 0.35 )
 position = Vector2( 598, 139 )
 scale = Vector2( 0.303825, 6 )
 
+[node name="ChandlerUpAttack" parent="Objects" index="0" instance=ExtResource( 8 )]
+position = Vector2( 208, 380 )
+scale = Vector2( 0.5, 0.5 )
+
 [node name="MagicaDispenser" parent="ObjectDispensers" index="0" instance=ExtResource( 7 )]
 position = Vector2( 551, 390 )
+
+[node name="MagicaDispenser2" parent="ObjectDispensers" index="1" instance=ExtResource( 7 )]
+position = Vector2( -231, 511 )
 
 [node name="Player" parent="." index="5" instance=ExtResource( 5 )]
 position = Vector2( -307, 492 )

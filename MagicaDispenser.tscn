@@ -131,5 +131,8 @@ visible = false
 position = Vector2( 10, 7.5 )
 shape = SubResource( 3 )
 
+[node name="DispenseAnotherTimer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="OpenArea" to="." method="_on_OpenArea_body_entered"]
+[connection signal="timeout" from="DispenseAnotherTimer" to="." method="_on_DispenseAnotherTimer_timeout"]

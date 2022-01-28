@@ -1,0 +1,5 @@
+extends Node2D
+
+enum aitype_enum {NONE, SEEK, ARRIVE, STAYWALLS, FOLLOWPATH}
+enum spritetype_enum {TAPE,TOOL,KEY,SODA,CAFE,CHOCOLATE,COKE,HAMB,JUICE,FRIES}
+
