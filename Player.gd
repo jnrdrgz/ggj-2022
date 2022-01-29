@@ -48,6 +48,7 @@ func _ready():
 	has_to_go_back_in_time_timer.set_wait_time(has_to_go_back_in_time_time)
 
 func go_back_in_time_clock(seconds=0):
+	$Sprite.get_material().set_shader_param("activate", true)
 	has_to_go_back_in_time = true
 	if seconds == 0:
 		seconds = has_to_go_back_in_time_time
@@ -234,3 +235,4 @@ func _on_HasToGoBackInTimeTimer_timeout():
 	player_movements_to_back_in_time.clear()
 	back_in_time_movs.clear()
 	back_in_time_action_count = 0
+	$Sprite.get_material().set_shader_param("activate", false)

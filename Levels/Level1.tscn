@@ -23,6 +23,8 @@ script = ExtResource( 1 )
 [node name="Polygon2D" parent="." index="0"]
 polygon = PoolVector2Array( -519, -252, 3104, -247, 3108, 878, -526, 882, -523.403, 461.286 )
 
+[node name="checkpoints" type="Node2D" parent="." index="1"]
+
 [node name="Floor" parent="Platforms" index="0" instance=ExtResource( 3 )]
 position = Vector2( 24, 528 )
 color = 2
@@ -213,18 +215,21 @@ position = Vector2( 110, 301 )
 rotation = 1.5708
 deactivated = true
 
-[node name="Player" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Player" parent="." index="6" instance=ExtResource( 5 )]
 position = Vector2( 492, 507 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Player2" parent="." index="6" instance=ExtResource( 4 )]
+[node name="Player2" parent="." index="7" instance=ExtResource( 4 )]
 position = Vector2( -362, 494 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="SceneChangerTester" parent="." index="7" instance=ExtResource( 6 )]
+[node name="SceneChangerTester" parent="." index="8" instance=ExtResource( 6 )]
 position = Vector2( 2938, 368 )
 
-[node name="Limits" type="Node2D" parent="." index="9"]
+[node name="CollisionShape2D" parent="SceneChangerTester/Area2D" index="0"]
+position = Vector2( 128.125, -75.5 )
+
+[node name="Limits" type="Node2D" parent="." index="10"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Limits" index="0"]
 
@@ -232,16 +237,16 @@ position = Vector2( 2938, 368 )
 position = Vector2( -384, 274 )
 shape = SubResource( 2 )
 
-[node name="BackInTimeClock" parent="." index="10" instance=ExtResource( 9 )]
+[node name="BackInTimeClock" parent="." index="11" instance=ExtResource( 9 )]
 position = Vector2( 374, 517 )
 time_back = 12
 
-[node name="BackInTimeClock2" parent="." index="11" instance=ExtResource( 9 )]
+[node name="BackInTimeClock2" parent="." index="12" instance=ExtResource( 9 )]
 position = Vector2( 581, 517 )
 time_back = 6
 
-[node name="BackInTimeClock3" parent="." index="12" instance=ExtResource( 9 )]
-position = Vector2( 702, 516 )
+[node name="BackInTimeClock3" parent="." index="13" instance=ExtResource( 9 )]
+position = Vector2( 682, 516 )
 time_back = 6
 
 [connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_finished_throwing"]
@@ -249,3 +254,4 @@ time_back = 6
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
 
 [editable path="Platforms/Floor"]
+[editable path="SceneChangerTester"]

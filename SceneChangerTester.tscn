@@ -3,7 +3,7 @@
 [ext_resource path="res://SceneChangerTester.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 58.75, 54.25 )
+extents = Vector2( 102.875, 277.5 )
 
 [node name="SceneChangerTester" type="Node2D"]
 script = ExtResource( 1 )

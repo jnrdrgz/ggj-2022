@@ -1,0 +1,37 @@
+{
+	"events": [
+		{
+			"character": "character-1643472097.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Where is our cat?"
+		},
+		{
+			"character": "character-1643472109.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¯\\_(ツ)_/¯"
+		},
+		{
+			"character": "character-1643472097.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hh look, it's in that very strange and not at all suspicious house."
+		},
+		{
+			"character": "character-1643472109.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Maybe he is in there, let's go to search him."
+		},
+		{
+			"emit_signal": "test",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1643472266.json",
+		"name": "intro"
+	}
+}
