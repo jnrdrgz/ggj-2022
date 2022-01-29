@@ -93,8 +93,9 @@ func set_ai(ai):
 		velocity = Vector2(4,3)
 	
 func _process(delta):
-	if $Explosion.finished:
-		queue_free()
+	#if $Explosion.finished:
+	#	queue_free()
+	pass
 		
 func _physics_process(delta):
 	#print("executing physics child")
@@ -245,12 +246,23 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT:
 			$AIMenu.visible = !$AIMenu.visible
 
+onready var expPath = "res://Explosion.tscn"
+
+func spawn_explosion():
+	var object = load(expPath)
+	var mo = object.instance()
+	get_parent().add_child(mo)
+	mo.global_position = global_position
+	mo.scale = Vector2(0.5,0.5)
+	
 func kill():
 	ai_type = aitype_enum.NONE
 	velocity = Vector2.ZERO
-	$Explosion.visible = true
-	$Sprite.visible = false
-	$Explosion.play_anim("main_explosion")
+	spawn_explosion()
+	queue_free()
+	#$Explosion.visible = true
+	#$Sprite.visible = false
+	#$Explosion.play_anim("main_explosion")
 	
 
 
