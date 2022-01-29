@@ -85,10 +85,22 @@ position = Vector2( -670.227, -59.1593 )
 [node name="Plat17" parent="Platforms/Plat13" index="12" instance=ExtResource( 3 )]
 position = Vector2( -792.086, -29.5797 )
 
-[node name="Plat11" parent="Platforms/Plat13" index="13" instance=ExtResource( 3 )]
+[node name="Plat19" parent="Platforms/Plat13" index="13" instance=ExtResource( 3 )]
+position = Vector2( -909.593, -29.5796 )
+
+[node name="Plat20" parent="Platforms/Plat13" index="14" instance=ExtResource( 3 )]
+position = Vector2( -1027.1, -29.5796 )
+
+[node name="Plat21" parent="Platforms/Plat13" index="15" instance=ExtResource( 3 )]
+position = Vector2( -1148.96, -26.293 )
+
+[node name="Plat22" parent="Platforms/Plat13" index="16" instance=ExtResource( 3 )]
+position = Vector2( -1266.47, -26.293 )
+
+[node name="Plat11" parent="Platforms/Plat13" index="17" instance=ExtResource( 3 )]
 position = Vector2( -404.747, 46.0126 )
 
-[node name="Plat18" parent="Platforms/Plat13" index="14" instance=ExtResource( 3 )]
+[node name="Plat18" parent="Platforms/Plat13" index="18" instance=ExtResource( 3 )]
 position = Vector2( -526.607, 46.0126 )
 
 [node name="Plat17" parent="Platforms" index="4" instance=ExtResource( 3 )]
@@ -222,7 +234,7 @@ shape = SubResource( 2 )
 
 [node name="BackInTimeClock" parent="." index="10" instance=ExtResource( 9 )]
 position = Vector2( 374, 517 )
-time_back = 6
+time_back = 12
 
 [node name="BackInTimeClock2" parent="." index="11" instance=ExtResource( 9 )]
 position = Vector2( 581, 517 )

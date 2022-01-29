@@ -3,7 +3,7 @@
 [ext_resource path="res://Levels/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/Level2SliceBrother.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Levels/Level2SliceSister.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level2SliceSisterInherited.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 2
@@ -48,4 +48,4 @@ size = Vector2( 513, 594 )
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="Node2D" parent="ViewportContainer2/Viewport" index="0" instance=ExtResource( 4 )]
+[node name="Level2SliceSisterInherited" parent="ViewportContainer2/Viewport" index="0" instance=ExtResource( 4 )]

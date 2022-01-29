@@ -30,20 +30,17 @@ scale = Vector2( 0.6, 0.6 )
 [node name="Plat24" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 391.667, -901.667 )
 rotation = 1.58794
-scale = Vector2( 1, 1 )
 
 [node name="Plat25" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 395, -1008.33 )
 rotation = 1.58794
-scale = Vector2( 1, 1 )
 
 [node name="Plat26" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( -3.33337, -371.667 )
 rotation = 1.58794
-scale = Vector2( 1, 1 )
 
 [node name="Plat15" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 605, 211.667 )
+position = Vector2( 605, 231.667 )
 
 [node name="Plat16" parent="Platforms/Plat15" instance=ExtResource( 1 )]
 position = Vector2( -100, -46.6667 )
@@ -148,7 +145,7 @@ rotation = -1.56839
 position = Vector2( 122.667, -28.6667 )
 
 [node name="Plat2" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 156.667, -206.667 )
+position = Vector2( 153.333, -186.667 )
 
 [node name="Plat2" parent="Platforms/Plat2" instance=ExtResource( 1 )]
 position = Vector2( 244.333, -60.3333 )
@@ -238,7 +235,7 @@ position = Vector2( 122.667, -28.6667 )
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="BackInTimeClock" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( -13, 622 )
+position = Vector2( -206, 537 )
 
 [node name="BackInTimeClock2" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( -442, 433 )

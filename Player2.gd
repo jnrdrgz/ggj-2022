@@ -27,6 +27,7 @@ func play_anim(anim):
 onready var start_position = global_position
 var next_action_to_excute = null
 var next_action_to_excute_time = 0
+var is_in_grace_zone = false
 
 var action_count = 0
 var mode_player_actions_queue = []
@@ -120,7 +121,7 @@ func _physics_process_user_control(delta):
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+		if is_on_floor() or is_in_grace_zone:
 			#player_movements_queue.push_back(["jump", 0.1])
 			velocity.y = jump_speed
 			#jump_action_in_queue = true

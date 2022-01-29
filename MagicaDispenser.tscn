@@ -125,6 +125,8 @@ anims/shake_and_open = SubResource( 2 )
 
 [node name="OpenArea" type="Area2D" parent="."]
 visible = false
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpenArea"]
 visible = false
