@@ -123,10 +123,18 @@ rotation = -1.573
 [node name="Plat14" parent="Platforms/Plat2" index="7" instance=ExtResource( 3 )]
 position = Vector2( 242.588, -28.989 )
 
-[node name="Plat15" parent="Platforms/Plat2" index="8" instance=ExtResource( 3 )]
+[node name="Plat16" parent="Platforms/Plat2" index="8" instance=ExtResource( 3 )]
+position = Vector2( 218.897, -109.853 )
+scale = Vector2( 0.46934, 0.51176 )
+
+[node name="Plat20" parent="Platforms/Plat2" index="9" instance=ExtResource( 3 )]
+position = Vector2( 109.922, -74.7612 )
+scale = Vector2( 0.46934, 0.51176 )
+
+[node name="Plat15" parent="Platforms/Plat2" index="10" instance=ExtResource( 3 )]
 position = Vector2( 363.881, 0 )
 
-[node name="Plat17" parent="Platforms/Plat2" index="9" instance=ExtResource( 3 )]
+[node name="Plat17" parent="Platforms/Plat2" index="11" instance=ExtResource( 3 )]
 position = Vector2( 484.532, 45.8223 )
 rotation = -1.573
 

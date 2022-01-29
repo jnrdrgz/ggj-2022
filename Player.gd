@@ -36,6 +36,7 @@ var has_to_go_back_in_time_time : int = 2
 var action_time_tigrered = false
 var jump_action_in_queue = false
 var has_to_go_back_in_time : bool = false
+var dead = false
 
 func _ready():
 	#$Camera2D.global_position.x = global_position.x - 50
@@ -163,6 +164,8 @@ func go_back_in_time():
 	get_recording()
 	
 func _physics_process(delta):
+	if dead:
+		return
 	#if !is_on_floor():
 	#	floor_timer.start()
 	#else:
@@ -213,8 +216,14 @@ func _on_DeathZone_body_entered(body):
 
 func respawn():
 	global_position = start_position
+	dead = false
 
-
+func kill():
+	dead = true
+	$AnimationPlayer.play("die")
+	yield($AnimationPlayer, "animation_finished")
+	respawn()
+	
 func _on_FloorTimer_timeout():
 	custom_is_on_floor = false
 

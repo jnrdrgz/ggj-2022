@@ -4,7 +4,7 @@ var player = null
 
 var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
-var MAX_SPEED = 4
+var MAX_SPEED = 3
 var max_speed = Vector2(MAX_SPEED,MAX_SPEED)
 
 enum aitype_enum {NONE, SEEK, ARRIVE, STAYWALLS, FOLLOWPATH}
@@ -75,6 +75,7 @@ func set_ai_type_str(t : String):
 	
 func _ready():
 	player = get_tree().current_scene.get_node("Player")
+	max_speed = Vector2(MAX_SPEED,MAX_SPEED)
 	add_aibutton("none", aitype_enum.NONE, -4)
 	add_aibutton("seek", aitype_enum.SEEK ,1)
 	add_aibutton("arrive", aitype_enum.ARRIVE, 4)
@@ -272,6 +273,8 @@ func _on_Area2D_body_entered(body):
 		kill()
 	if body.is_in_group("player"):
 		kill()
+		if !body.dead:
+			body.kill()
 	if body.is_in_group("platform"):
 		if has_to_die_in_platform:
 			kill()
