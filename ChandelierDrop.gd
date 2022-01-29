@@ -11,4 +11,6 @@ func _physics_process(delta):
 	if falling:
 		velocity.y += gravity * delta
 		velocity = move_and_slide(velocity, Vector2.UP)
+		if(global_position.y > 2000):
+			queue_free()
 		

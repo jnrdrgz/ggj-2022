@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plataformita.png-a149c6ee0cfa5361da4fadb7a5b4efa9.stex"
+path="res://.import/pttx2.png-017ec2039497f14fb0d739c9ae2c711c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/plataformita.png"
-dest_files=[ "res://.import/plataformita.png-a149c6ee0cfa5361da4fadb7a5b4efa9.stex" ]
+source_file="res://Assets/pttx2.png"
+dest_files=[ "res://.import/pttx2.png-017ec2039497f14fb0d739c9ae2c711c.stex" ]
 
 [params]
 

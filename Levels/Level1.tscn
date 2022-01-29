@@ -38,52 +38,91 @@ visible = false
 visible = false
 
 [node name="Plat" parent="Platforms" index="1" instance=ExtResource( 3 )]
-position = Vector2( -112, 492 )
+position = Vector2( -208, 476 )
 scale = Vector2( 0.7, 0.359 )
 
-[node name="Plat5" parent="Platforms" index="2" instance=ExtResource( 3 )]
-position = Vector2( 513, 490 )
-scale = Vector2( 0.109773, 0.824264 )
-
-[node name="Plat6" parent="Platforms" index="3" instance=ExtResource( 3 )]
-position = Vector2( 556, 461 )
-scale = Vector2( 0.109773, 0.824264 )
-
-[node name="Plat10" parent="Platforms" index="4" instance=ExtResource( 3 )]
+[node name="Plat10" parent="Platforms" index="2" instance=ExtResource( 3 )]
 position = Vector2( 1169, 481 )
 scale = Vector2( 0.223842, 0.295924 )
 
-[node name="Plat12" parent="Platforms" index="5" instance=ExtResource( 3 )]
+[node name="Plat12" parent="Platforms" index="3" instance=ExtResource( 3 )]
 position = Vector2( 1233, 458 )
 scale = Vector2( 0.269763, 0.271728 )
 
-[node name="Plat11" parent="Platforms" index="6" instance=ExtResource( 3 )]
+[node name="Plat11" parent="Platforms" index="4" instance=ExtResource( 3 )]
 position = Vector2( 1275, 424 )
 scale = Vector2( 0.309763, 0.304266 )
 
-[node name="Plat7" parent="Platforms" index="7" instance=ExtResource( 3 )]
-position = Vector2( 469, 455 )
-scale = Vector2( 0.109773, 0.824264 )
+[node name="Plat13" parent="Platforms" index="5" instance=ExtResource( 3 )]
+position = Vector2( 429, 502 )
+scale = Vector2( 0.229773, 0.304264 )
 
-[node name="Plat2" parent="Platforms" index="8" instance=ExtResource( 3 )]
-position = Vector2( 56, 402 )
-scale = Vector2( 4.49529, 1.09542 )
+[node name="Plat7" parent="Platforms/Plat13" index="4" instance=ExtResource( 3 )]
+position = Vector2( -317.705, 16.433 )
+scale = Vector2( 1, 0.605574 )
 
-[node name="Plat3" parent="Platforms" index="9" instance=ExtResource( 3 )]
+[node name="Plat9" parent="Platforms/Plat13" index="5" instance=ExtResource( 3 )]
+position = Vector2( -87.0426, 46.0126 )
+
+[node name="Plat10" parent="Platforms/Plat13" index="6" instance=ExtResource( 3 )]
+position = Vector2( -91.3947, -49.2994 )
+
+[node name="Plat12" parent="Platforms/Plat13" index="7" instance=ExtResource( 3 )]
+position = Vector2( -187.141, -98.5986 )
+
+[node name="Plat13" parent="Platforms/Plat13" index="8" instance=ExtResource( 3 )]
+position = Vector2( -309.001, -108.458 )
+
+[node name="Plat14" parent="Platforms/Plat13" index="9" instance=ExtResource( 3 )]
+position = Vector2( -426.508, -108.458 )
+
+[node name="Plat15" parent="Platforms/Plat13" index="10" instance=ExtResource( 3 )]
+position = Vector2( -548.367, -88.7388 )
+
+[node name="Plat16" parent="Platforms/Plat13" index="11" instance=ExtResource( 3 )]
+position = Vector2( -670.227, -59.1593 )
+
+[node name="Plat17" parent="Platforms/Plat13" index="12" instance=ExtResource( 3 )]
+position = Vector2( -792.086, -29.5797 )
+
+[node name="Plat11" parent="Platforms/Plat13" index="13" instance=ExtResource( 3 )]
+position = Vector2( -404.747, 46.0126 )
+
+[node name="Plat18" parent="Platforms/Plat13" index="14" instance=ExtResource( 3 )]
+position = Vector2( -526.607, 46.0126 )
+
+[node name="Plat2" parent="Platforms" index="6" instance=ExtResource( 3 )]
+position = Vector2( 18, 422 )
+scale = Vector2( 1.05529, 0.65542 )
+
+[node name="Plat13" parent="Platforms/Plat2" index="4" instance=ExtResource( 3 )]
+position = Vector2( -120.346, 24.4118 )
+scale = Vector2( 1, 0.450734 )
+
+[node name="Plat18" parent="Platforms/Plat2" index="5" instance=ExtResource( 3 )]
+position = Vector2( 120.346, 1.52576 )
+
+[node name="Plat14" parent="Platforms/Plat2" index="6" instance=ExtResource( 3 )]
+position = Vector2( 242.588, -28.989 )
+
+[node name="Plat15" parent="Platforms/Plat2" index="7" instance=ExtResource( 3 )]
+position = Vector2( 363.881, 0 )
+
+[node name="Plat16" parent="Platforms/Plat2" index="8" instance=ExtResource( 3 )]
+position = Vector2( 483.871, 45.4802 )
+rotation = -1.573
+
+[node name="Plat17" parent="Platforms/Plat2" index="9" instance=ExtResource( 3 )]
+position = Vector2( 482.67, -76.3992 )
+rotation = -1.573
+
+[node name="Plat3" parent="Platforms" index="7" instance=ExtResource( 3 )]
 position = Vector2( 731, 476 )
 scale = Vector2( 0.72, 0.35 )
 
-[node name="Plat8" parent="Platforms" index="10" instance=ExtResource( 3 )]
+[node name="Plat8" parent="Platforms" index="8" instance=ExtResource( 3 )]
 position = Vector2( 1317, 395 )
 scale = Vector2( 2.78939, 0.392284 )
-
-[node name="Plat4" parent="Platforms" index="11" instance=ExtResource( 3 )]
-position = Vector2( 598, 139 )
-scale = Vector2( 0.303825, 6 )
-
-[node name="Plat9" parent="Platforms" index="12" instance=ExtResource( 3 )]
-position = Vector2( 598, 139 )
-scale = Vector2( 0.303825, 6 )
 
 [node name="ChandlerUpAttack" parent="Objects" index="0" instance=ExtResource( 8 )]
 position = Vector2( 1086, 505 )
@@ -94,14 +133,14 @@ position = Vector2( 1408, 376 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MagicaDispenser" parent="ObjectDispensers" index="0" instance=ExtResource( 7 )]
-position = Vector2( 551, 390 )
+position = Vector2( 453, 410 )
 
 [node name="MagicaDispenser2" parent="ObjectDispensers" index="1" instance=ExtResource( 7 )]
-position = Vector2( -231, 518 )
+position = Vector2( 904, 505 )
 max_objects = 4
 
 [node name="Player" parent="." index="5" instance=ExtResource( 5 )]
-position = Vector2( -290, 487 )
+position = Vector2( 201, 499 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Player2" parent="." index="6" instance=ExtResource( 4 )]
@@ -120,7 +159,7 @@ position = Vector2( -384, 274 )
 shape = SubResource( 2 )
 
 [node name="BackInTimeClock" parent="." index="10" instance=ExtResource( 9 )]
-position = Vector2( 761, 462 )
+position = Vector2( 374, 517 )
 time_back = 6
 
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
