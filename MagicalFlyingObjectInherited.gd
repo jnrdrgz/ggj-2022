@@ -36,6 +36,9 @@ func go_in_direction_to_player():
 func boomerang():
 	pass
 
+func set_texture(t):
+	.set_texture(t)
+
 func _physics_process(delta):
 	#position += transform.x * speed * delta
 	if has_to_chase:

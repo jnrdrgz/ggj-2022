@@ -38,7 +38,6 @@ func _physics_process(delta):
 func _on__body_entered(body):
 	if body.is_in_group("player"):
 		#body.queue_free()
-		print("object hitted plyer")
 		queue_free()
 	if body.is_in_group("platform"):
 		queue_free()

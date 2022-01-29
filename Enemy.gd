@@ -8,8 +8,7 @@ var MAX_SPEED = 4
 var max_speed = Vector2(MAX_SPEED,MAX_SPEED)
 
 enum aitype_enum {NONE, SEEK, ARRIVE, STAYWALLS, FOLLOWPATH}
-enum spritetype_enum {TAPE,TOOL,KEY,SODA,CAFE,CHOCOLATE,COKE,HAMB,JUICE,FRIES}
-export (spritetype_enum) var sprite_type = spritetype_enum.SODA
+export (Globals.spritetype_enum) var sprite_type = Globals.spritetype_enum.SODA
 export (aitype_enum) var ai_type
 onready var aibutton_scene = load("res://AIMenuButton.tscn")
 
@@ -17,10 +16,17 @@ var debug = false
 
 onready var sprite = $Sprite
 onready var textures = {
-		spritetype_enum.SODA: load("res://Assets/sprBottleSoda_0.png"),
-		spritetype_enum.FRIES: load("res://Assets/sprFrenchFries_0.png"),
-		spritetype_enum.HAMB: load("res://Assets/sprHamb_1.png"),
-		spritetype_enum.JUICE: load("res://Assets/sprJuice_1.png"),}
+	Globals.spritetype_enum.SODA: load("res://Assets/sprBottleSoda_0.png"),
+	Globals.spritetype_enum.HAMB: load("res://Assets/sprHamb_1.png"),
+	Globals.spritetype_enum.FRIES: load("res://Assets/sprFrenchFries_0.png"),
+	Globals.spritetype_enum.JUICE: load("res://Assets/sprJuice_1.png"),
+	Globals.spritetype_enum.TAPE: load("res://Assets/sprTape0_1.png"),
+	Globals.spritetype_enum.MEDAL: load("res://Assets/sprMedal_0.png"),
+	Globals.spritetype_enum.HOTDOG : load("res://Assets/sprHotDog_0.png"),
+	Globals.spritetype_enum.ICECREAM : load("res://Assets/sprIceCream_0.png"),
+	Globals.spritetype_enum.GIFT : load("res://Assets/sprGift_0.png"),
+	Globals.spritetype_enum.COFFEE : load("res://Assets/sprCafe_1.png"),
+}
 		
 func limit(vector : Vector2, _max : float):
 	var mSq = vector.length_squared()
@@ -77,6 +83,7 @@ func _ready():
 	sprite.texture = textures[sprite_type]
 	
 func set_texture(spr_type):
+	print("te", textures)
 	sprite.texture = textures[spr_type]
 	
 func set_ai(ai):
