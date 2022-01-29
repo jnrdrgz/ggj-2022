@@ -1,6 +1,6 @@
 extends "res://Levels/BaseLevel.gd"
 
-var next_level = "res://Levels/Level2.tscn"
+var next_level = "res://Cutscenes/AfterLevel2.tscn"
 
 func _ready():
 	._ready()

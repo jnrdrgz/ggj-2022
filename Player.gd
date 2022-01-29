@@ -6,6 +6,9 @@ export (int) var jump_speed = -450
 export (int) var gravity = 1500
 export (int) var floor_timer_limit = 1
 export (bool) var player2 = false
+export (bool) var deactivated = false
+
+export (bool) var invincible = true
 
 
 var is_in_ladder = false
@@ -166,7 +169,7 @@ func go_back_in_time():
 	get_recording()
 	
 func _physics_process(delta):
-	if dead:
+	if dead || deactivated:
 		return
 	#if !is_on_floor():
 	#	floor_timer.start()
@@ -221,10 +224,11 @@ func respawn():
 	dead = false
 
 func kill():
-	dead = true
-	$AnimationPlayer.play("die")
-	yield($AnimationPlayer, "animation_finished")
-	respawn()
+	if !invincible:
+		dead = true
+		$AnimationPlayer.play("die")
+		yield($AnimationPlayer, "animation_finished")
+		respawn()
 	
 func _on_FloorTimer_timeout():
 	custom_is_on_floor = false

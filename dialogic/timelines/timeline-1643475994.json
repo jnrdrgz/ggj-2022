@@ -1,0 +1,31 @@
+{
+	"events": [
+		{
+			"character": "character-1643472097.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I broke my leg I can't continue."
+		},
+		{
+			"character": "character-1643472109.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I can't continue without you."
+		},
+		{
+			"character": "character-1643472097.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Don't worry I'll guide you."
+		},
+		{
+			"emit_signal": "test",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1643475994.json",
+		"name": "afterlevel2"
+	}
+}

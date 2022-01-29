@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=2]
@@ -13,6 +13,53 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1829, 22.9417 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends StaticBody2D
+
+enum colorenum {RED,BLUE,TRANS}
+export (colorenum) var color = colorenum.RED
+export (bool) var deactivated = false
+
+func _ready():
+	if color == colorenum.RED:
+		$blue.hide()
+		$red.show()
+	if color == colorenum.BLUE:
+		$blue.show()
+		$red.hide()
+	if color == colorenum.TRANS:
+		$red.hide()
+		$blue.hide()
+
+	if deactivated:
+		deactivate()
+func _on_GraceZone_body_entered(body):
+	if body.is_in_group(\"player\"):
+		body.is_in_grace_zone = true
+
+func _on_GraceZone_body_exited(body):
+	if body.is_in_group(\"player\"):
+		body.is_in_grace_zone = false
+
+func deactivate():
+	hide()
+	$CollisionShape2D.call_deferred(\"set\", \"disabled\", true)
+
+func activate():
+	show()
+	#$CollisionShape2D.disabled = false
+	$CollisionShape2D.call_deferred(\"set\", \"disabled\", false)
+
+func _on_MagicaDispenser_start_throwing():
+	activate()	
+
+func _on_MagicaDispenser_finished_throwing():
+	deactivate()
+
+func _on_MagicaDispenser3_finished_throwing():
+	activate()
+"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 12.25, 254.5 )
@@ -207,7 +254,7 @@ time_between_objects = 6
 object_per_throw = 2
 
 [node name="MagicaDispenser3" parent="ObjectDispensers" index="2" instance=ExtResource( 7 )]
-position = Vector2( 2151, 513 )
+position = Vector2( 2101, 513 )
 dispenser_type = 2
 
 [node name="Plat" parent="ObjectDispensers" index="3" instance=ExtResource( 3 )]
@@ -215,12 +262,23 @@ position = Vector2( 110, 301 )
 rotation = 1.5708
 deactivated = true
 
+[node name="Plat13" parent="ObjectDispensers" index="4" instance=ExtResource( 3 )]
+position = Vector2( 2246, 482 )
+script = SubResource( 3 )
+deactivated = true
+
+[node name="Plat14" parent="ObjectDispensers" index="5" instance=ExtResource( 3 )]
+position = Vector2( 2303, 433 )
+scale = Vector2( 0.52782, 1 )
+script = SubResource( 3 )
+deactivated = true
+
 [node name="Player" parent="." index="6" instance=ExtResource( 5 )]
-position = Vector2( 492, 507 )
+position = Vector2( -312, 476 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Player2" parent="." index="7" instance=ExtResource( 4 )]
-position = Vector2( -362, 494 )
+position = Vector2( -356, 473 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="SceneChangerTester" parent="." index="8" instance=ExtResource( 6 )]
@@ -237,6 +295,12 @@ position = Vector2( 128.125, -75.5 )
 position = Vector2( -384, 274 )
 shape = SubResource( 2 )
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="Limits" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits/StaticBody2D2" index="0"]
+position = Vector2( 3138, 334 )
+shape = SubResource( 2 )
+
 [node name="BackInTimeClock" parent="." index="11" instance=ExtResource( 9 )]
 position = Vector2( 374, 517 )
 time_back = 12
@@ -251,6 +315,8 @@ time_back = 6
 
 [connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_finished_throwing"]
 [connection signal="start_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_start_throwing"]
+[connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser3" to="ObjectDispensers/Plat13" method="_on_MagicaDispenser3_finished_throwing"]
+[connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser3" to="ObjectDispensers/Plat14" method="_on_MagicaDispenser3_finished_throwing"]
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
 
 [editable path="Platforms/Floor"]

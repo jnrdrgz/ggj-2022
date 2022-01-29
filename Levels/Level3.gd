@@ -13,6 +13,9 @@ func spawn_dialog(position, t):
 
 func _ready():
 	._ready()
+	var new_dialog = Dialogic.start('intructionslevel3')
+	new_dialog.connect("dialogic_signal", self, "dialog_listener")
+	add_child(new_dialog)
 
 #func _process(delta):
 #	get_global_mouse_position()

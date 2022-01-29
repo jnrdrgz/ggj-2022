@@ -1,0 +1,25 @@
+{
+	"events": [
+		{
+			"character": "character-1643472097.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Seems that there are two stairways"
+		},
+		{
+			"character": "character-1643472109.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Let's split"
+		},
+		{
+			"emit_signal": "test",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1643475287.json",
+		"name": "afterlevel1"
+	}
+}
