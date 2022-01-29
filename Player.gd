@@ -118,13 +118,14 @@ func get_input():
 			play_anim("idle")		
 
 func do_record():
+	#print("recrodiing", len(player_movements_to_back_in_time))
 	#if(time_travel)
 	#print("test", len(player_movements_to_back_in_time))
 	player_movements_to_back_in_time.push_back(
 		[anim_player.current_animation, global_position, sprite.flip_h, sprite.flip_v])
 	
 	if(len(player_movements_to_back_in_time) > 13000):
-		print("limit")
+		#print("limit")
 		player_movements_to_back_in_time.pop_front()
 	#print()
 	#count += 1

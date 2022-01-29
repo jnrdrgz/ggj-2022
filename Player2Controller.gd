@@ -4,6 +4,9 @@ var player_movements_queue = []
 var action_time = 0
 var has_to_update_text = false
 
+
+signal derecha_button_pressed_signal()
+
 func _ready():
 	pass # Replace with function body.
 
@@ -28,6 +31,8 @@ func update_queue(action):
 
 func _on_DerechaButton_button_down():
 	action_time = OS.get_ticks_msec()
+	#spawn_dialog(get_global_mouse_pos())
+	#emit_signal("derecha_button_pressed_signal")
 	print("DERECHA DOWN")	
 
 func _on_DerechaButton_button_up():

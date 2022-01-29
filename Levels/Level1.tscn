@@ -131,17 +131,22 @@ position = Vector2( 484.532, 45.8223 )
 rotation = -1.573
 
 [node name="Plat3" parent="Platforms" index="6" instance=ExtResource( 3 )]
-position = Vector2( 845, 477 )
+position = Vector2( 840, 473 )
 scale = Vector2( 0.72, 0.35 )
 
-[node name="Plat15" parent="Platforms" index="7" instance=ExtResource( 3 )]
+[node name="Plat4" parent="Platforms" index="7" instance=ExtResource( 3 )]
+position = Vector2( 944, 443 )
+rotation = 1.5708
+scale = Vector2( 0.72, 0.35 )
+
+[node name="Plat15" parent="Platforms" index="8" instance=ExtResource( 3 )]
 position = Vector2( 1793, 412 )
 scale = Vector2( 0.46938, 0.392284 )
 
 [node name="Plat14" parent="Platforms/Plat15" index="4" instance=ExtResource( 3 )]
 position = Vector2( 153.394, 145.303 )
 
-[node name="Plat8" parent="Platforms" index="8" instance=ExtResource( 3 )]
+[node name="Plat8" parent="Platforms" index="9" instance=ExtResource( 3 )]
 position = Vector2( 1384, 384 )
 scale = Vector2( 0.46938, 0.392284 )
 
@@ -174,17 +179,22 @@ max_objects = 2
 time_between_objects = 3
 
 [node name="MagicaDispenser2" parent="ObjectDispensers" index="1" instance=ExtResource( 7 )]
-position = Vector2( 941, 518 )
-max_objects = 2
-time_between_objects = 5
+position = Vector2( 754, 516 )
+max_objects = 4
+time_between_objects = 6
 object_per_throw = 2
 
 [node name="MagicaDispenser3" parent="ObjectDispensers" index="2" instance=ExtResource( 7 )]
 position = Vector2( 2151, 513 )
 dispenser_type = 2
 
+[node name="Plat" parent="ObjectDispensers" index="3" instance=ExtResource( 3 )]
+position = Vector2( 110, 301 )
+rotation = 1.5708
+deactivated = true
+
 [node name="Player" parent="." index="5" instance=ExtResource( 5 )]
-position = Vector2( 396, 311 )
+position = Vector2( 319, 388 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Player2" parent="." index="6" instance=ExtResource( 4 )]
@@ -206,6 +216,8 @@ shape = SubResource( 2 )
 position = Vector2( 374, 517 )
 time_back = 6
 
+[connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_finished_throwing"]
+[connection signal="start_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_start_throwing"]
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
 
 [editable path="Platforms/Floor"]

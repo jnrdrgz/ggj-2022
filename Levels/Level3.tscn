@@ -52,8 +52,46 @@ player2_mode = 2
 current = true
 zoom = Vector2( 0.44, 0.44 )
 
-[node name="SceneChangerTester" parent="." index="7" instance=ExtResource( 2 )]
-position = Vector2( 1597, 398 )
+[node name="Plat" parent="." index="7" instance=ExtResource( 4 )]
+position = Vector2( 1873, 506 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat2" parent="." index="8" instance=ExtResource( 4 )]
+position = Vector2( 1519, 518 )
+scale = Vector2( 0.5, 0.26001 )
+
+[node name="Plat4" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 1519, 432 )
+scale = Vector2( 0.78, 0.310913 )
+
+[node name="Plat6" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 1519, 410 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat9" parent="." index="11" instance=ExtResource( 4 )]
+position = Vector2( 1519, 470 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat5" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 1650, 358 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat3" parent="Plat5" index="4" instance=ExtResource( 4 )]
+position = Vector2( 0, 226 )
+scale = Vector2( 1, 0.513036 )
+
+[node name="Plat7" parent="Plat5" index="5" instance=ExtResource( 4 )]
+position = Vector2( 168, 2 )
+rotation = 1.5708
+
+[node name="Plat8" parent="Plat5" index="6" instance=ExtResource( 4 )]
+position = Vector2( 168, 120 )
+rotation = 1.5708
+
+[node name="SceneChangerTester" parent="." index="13" instance=ExtResource( 2 )]
+position = Vector2( -395, 394 )
 
 [node name="Control" parent="CanvasLayer" index="0" instance=ExtResource( 7 )]
 margin_left = 880.0
@@ -63,6 +101,11 @@ margin_bottom = -73.0
 rect_scale = Vector2( 0.25, 0.25 )
 
 [connection signal="_time_to_change_level_player2" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level_player2"]
+[connection signal="button_down" from="CanvasLayer/Control/SaltarButton" to="." method="_on_SaltarButton_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/AgacharButton" to="." method="_on_AgacharButton_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/DerechaButton" to="." method="_on_DerechaButton_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/IzquierdaButton" to="." method="_on_IzquierdaButton_button_down"]
 
 [editable path="Platforms/Floor"]
 [editable path="Player"]
+[editable path="CanvasLayer/Control"]

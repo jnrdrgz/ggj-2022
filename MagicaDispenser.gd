@@ -2,9 +2,11 @@ extends Node2D
 
 var dropping_objects = false
 var already_open = false
-signal stopped_throwing
 
 onready var magicalObjectScenePath = "res://MagicalFlyingObjectInherited.tscn"
+
+signal finished_throwing()
+signal start_throwing()
 
 onready var textures = {
 		Globals.magicaldispensertype_enum.LIBRARY: load("res://Assets/sprChest_0-Sheet.png"),
@@ -62,6 +64,7 @@ func _on_OpenArea_body_entered(body):
 	if body.is_in_group("player") and not already_open:
 		play_anim("shake_and_open")
 		already_open = true
+		emit_signal("start_throwing")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -76,3 +79,6 @@ func _on_DispenseAnotherTimer_timeout():
 			throw_magical_object()
 			throwed_objects += 1
 			#yield timer
+			yield(get_tree().create_timer(time_between_objects/object_per_throw), "timeout")
+		if throwed_objects == max_objects:
+			emit_signal("finished_throwing")

@@ -15,6 +15,7 @@ func play_anim(anim):
 
 func _ready():
 	._ready()
+	has_to_die_in_platform = true
 	effect.interpolate_property(self, 'position',
 		position, Vector2(position.x, position.y-30.0), 1,
 		Tween.TRANS_QUAD, Tween.EASE_OUT)

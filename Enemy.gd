@@ -13,6 +13,7 @@ export (aitype_enum) var ai_type
 onready var aibutton_scene = load("res://AIMenuButton.tscn")
 
 var debug = false
+var has_to_die_in_platform = false
 
 onready var sprite = $Sprite
 onready var textures = {
@@ -83,7 +84,6 @@ func _ready():
 	sprite.texture = textures[sprite_type]
 	
 func set_texture(spr_type):
-	print("te", textures)
 	sprite.texture = textures[spr_type]
 	
 func set_ai(ai):
@@ -272,3 +272,6 @@ func _on_Area2D_body_entered(body):
 		kill()
 	if body.is_in_group("player"):
 		kill()
+	if body.is_in_group("platform"):
+		if has_to_die_in_platform:
+			kill()
