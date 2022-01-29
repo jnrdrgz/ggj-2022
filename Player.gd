@@ -156,6 +156,7 @@ func get_recording():
 func get_back_in_time_array():
 	for m in player_movements_to_back_in_time:
 		back_in_time_movs.append(m)	
+	#player_movements_to_back_in_time.clear()
 	#back_in_time_movs.invert()
 
 func go_back_in_time():
@@ -230,3 +231,6 @@ func _on_FloorTimer_timeout():
 
 func _on_HasToGoBackInTimeTimer_timeout():
 	has_to_go_back_in_time = false	
+	player_movements_to_back_in_time.clear()
+	back_in_time_movs.clear()
+	back_in_time_action_count = 0
