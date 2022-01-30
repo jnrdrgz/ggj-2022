@@ -45,12 +45,16 @@ position = Vector2( 2177, 511 )
 scale = Vector2( 0.5, 0.5 )
 deactivated = true
 
+[node name="Sprite" parent="Player" index="1"]
+position = Vector2( -13, 52 )
+
 [node name="Camera2D" parent="Player" index="3"]
 current = false
 
 [node name="Player2" parent="." index="6" instance=ExtResource( 5 )]
-position = Vector2( 2038, 509 )
+position = Vector2( 1367, 388 )
 scale = Vector2( 0.5, 0.5 )
+gravity = 1000
 player2_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player2" index="4"]
@@ -62,36 +66,48 @@ position = Vector2( 1842, 505 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Plat2" parent="." index="8" instance=ExtResource( 4 )]
-position = Vector2( 1525, 461 )
+position = Vector2( 1282, 517 )
 scale = Vector2( 0.5, 0.26001 )
 
 [node name="Plat4" parent="Plat2" index="4" instance=ExtResource( 4 )]
-position = Vector2( 0, -330.756 )
+position = Vector2( -4, -373.063 )
+scale = Vector2( 2.36889, 0.923051 )
+
+[node name="Plat5" parent="Plat2" index="5" instance=ExtResource( 4 )]
+position = Vector2( 122, -3.84595 )
 scale = Vector2( 1.56, 1.19577 )
 
-[node name="Plat6" parent="Plat2" index="5" instance=ExtResource( 4 )]
+[node name="Plat7" parent="Plat2" index="6" instance=ExtResource( 4 )]
+position = Vector2( 312, -3.84595 )
+scale = Vector2( 1.56, 1.19577 )
+
+[node name="Plat6" parent="Plat2" index="7" instance=ExtResource( 4 )]
 position = Vector2( 0, -415.369 )
 rotation = 1.5708
 scale = Vector2( 1.923, 1 )
 
-[node name="Plat9" parent="Plat2" index="6" instance=ExtResource( 4 )]
+[node name="Plat9" parent="Plat2" index="8" instance=ExtResource( 4 )]
 position = Vector2( 0, -184.608 )
 rotation = 1.5708
 scale = Vector2( 1.923, 1 )
 
 [node name="Plat5" parent="." index="9" instance=ExtResource( 4 )]
-position = Vector2( 1650, 358 )
+position = Vector2( 1648, 354 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Plat3" parent="Plat5" index="4" instance=ExtResource( 4 )]
-position = Vector2( 0, 226 )
-scale = Vector2( 1, 0.513036 )
+position = Vector2( -362, 244 )
+scale = Vector2( 2.17339, 0.716735 )
 
-[node name="Plat7" parent="Plat5" index="5" instance=ExtResource( 4 )]
+[node name="Plat4" parent="Plat5" index="5" instance=ExtResource( 4 )]
+position = Vector2( -94.0001, 244 )
+scale = Vector2( 2.17339, 0.716735 )
+
+[node name="Plat7" parent="Plat5" index="6" instance=ExtResource( 4 )]
 position = Vector2( 168, 2 )
 rotation = 1.5708
 
-[node name="Plat8" parent="Plat5" index="6" instance=ExtResource( 4 )]
+[node name="Plat8" parent="Plat5" index="7" instance=ExtResource( 4 )]
 position = Vector2( 168, 120 )
 rotation = 1.5708
 
@@ -106,7 +122,7 @@ margin_bottom = -73.0
 rect_scale = Vector2( 0.25, 0.25 )
 
 [node name="WinningCat" parent="." index="12" instance=ExtResource( 8 )]
-position = Vector2( 1282, 513 )
+position = Vector2( 507, 512 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Limit" type="StaticBody2D" parent="." index="13"]

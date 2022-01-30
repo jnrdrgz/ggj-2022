@@ -39,3 +39,6 @@ func _on_MagicaDispenser_start_throwing():
 
 func _on_MagicaDispenser_finished_throwing():
 	deactivate()
+
+func _on_MagicaDispenser3_finished_throwing():
+	deactivate()

@@ -58,6 +58,7 @@ config/icon="res://icon.png"
 
 SceneChanger="*res://SceneChanger.tscn"
 Globals="*res://Globals.tscn"
+Sound="*res://Singletons/Sound.tscn"
 
 [editor_plugins]
 

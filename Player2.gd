@@ -32,6 +32,10 @@ var is_in_grace_zone = false
 var action_count = 0
 var mode_player_actions_queue = []
 
+var dead = false
+export (bool) var deactivated = false
+export (bool) var invincible = true
+
 func _ready():
 	#$Camera2D.global_position.x = global_position.x - 50
 	#$Camera2D.global_position.y = global_position.y
@@ -40,7 +44,20 @@ func _ready():
 		#$Camera2D.queue_free()
 	player = get_parent().get_node("Player")
 
+func kill():
+	if !invincible:
+		velocity = Vector2.ZERO
+		player.kill()
+		dead = true
+		$AnimationPlayer.play("die")
+		yield($AnimationPlayer, "animation_finished")
+		respawn()
+		player.respawn()
+		
 func _physics_process(delta):
+	if dead || deactivated:
+		return
+		
 	if Input.is_action_pressed("player2_mode_follow"):
 		player2_mode = mode.FOLLOW
 	if Input.is_action_pressed("player2_mode_instructions"):
@@ -50,7 +67,8 @@ func _physics_process(delta):
 
 		
 	if player2_mode == mode.FOLLOW:
-		get_recording()
+		if !player.dead:
+			get_recording()
 	if player2_mode == mode.CONTROLS:
 		_physics_process_user_control(delta)
 	if player2_mode == mode.INSTRUCTIONS:
@@ -59,7 +77,7 @@ func _physics_process(delta):
 func get_recording():
 	action_count += 1
 	var test = player.player_movements_queue_all.pop_back()#load_data.get(String(count))
-	yield(get_tree().create_timer(1.5), "timeout")
+	yield(get_tree().create_timer(1.2), "timeout")
 	if(test != null):
 		#print(test[1])
 		var space = 0
@@ -202,6 +220,8 @@ func _on_ActionTimer_timeout():
 	next_action_to_excute = null
 
 func respawn():
-	global_position = start_position
+	#global_position = start_position
+	dead = false
+
 
 

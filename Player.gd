@@ -3,12 +3,12 @@ extends KinematicBody2D
 export (int) var speed = 200
 export (int) var climbing_speed = 200
 export (int) var jump_speed = -450
-export (int) var gravity = 1500
+export (int) var gravity = 1200
 export (int) var floor_timer_limit = 1
 export (bool) var player2 = false
 export (bool) var deactivated = false
 
-export (bool) var invincible = true
+export (bool) var invincible = false
 
 
 var is_in_ladder = false
@@ -40,6 +40,8 @@ var action_time_tigrered = false
 var jump_action_in_queue = false
 var has_to_go_back_in_time : bool = false
 var dead = false
+
+signal player_dead()
 
 func _ready():
 	#$Camera2D.global_position.x = global_position.x - 50
@@ -166,7 +168,8 @@ func get_back_in_time_array():
 func go_back_in_time():
 	if back_in_time_action_count == 0:
 		get_back_in_time_array()
-	get_recording()
+	if !dead:
+		get_recording()
 	
 func _physics_process(delta):
 	if dead || deactivated:
@@ -225,10 +228,13 @@ func respawn():
 
 func kill():
 	if !invincible:
+		velocity = Vector2.ZERO
 		dead = true
 		$AnimationPlayer.play("die")
 		yield($AnimationPlayer, "animation_finished")
-		respawn()
+		#respawn()
+		emit_signal("player_dead")
+		
 	
 func _on_FloorTimer_timeout():
 	custom_is_on_floor = false

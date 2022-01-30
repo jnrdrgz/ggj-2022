@@ -10,56 +10,10 @@
 [ext_resource path="res://ChandlerAttackUpFire.tscn" type="PackedScene" id=8]
 [ext_resource path="res://BackInTimeClock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Chandelier.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1829, 22.9417 )
-
-[sub_resource type="GDScript" id=3]
-script/source = "extends StaticBody2D
-
-enum colorenum {RED,BLUE,TRANS}
-export (colorenum) var color = colorenum.RED
-export (bool) var deactivated = false
-
-func _ready():
-	if color == colorenum.RED:
-		$blue.hide()
-		$red.show()
-	if color == colorenum.BLUE:
-		$blue.show()
-		$red.hide()
-	if color == colorenum.TRANS:
-		$red.hide()
-		$blue.hide()
-
-	if deactivated:
-		deactivate()
-func _on_GraceZone_body_entered(body):
-	if body.is_in_group(\"player\"):
-		body.is_in_grace_zone = true
-
-func _on_GraceZone_body_exited(body):
-	if body.is_in_group(\"player\"):
-		body.is_in_grace_zone = false
-
-func deactivate():
-	hide()
-	$CollisionShape2D.call_deferred(\"set\", \"disabled\", true)
-
-func activate():
-	show()
-	#$CollisionShape2D.disabled = false
-	$CollisionShape2D.call_deferred(\"set\", \"disabled\", false)
-
-func _on_MagicaDispenser_start_throwing():
-	activate()	
-
-func _on_MagicaDispenser_finished_throwing():
-	deactivate()
-
-func _on_MagicaDispenser3_finished_throwing():
-	activate()
-"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 12.25, 254.5 )
@@ -71,6 +25,24 @@ script = ExtResource( 1 )
 polygon = PoolVector2Array( -519, -252, 3104, -247, 3108, 878, -526, 882, -523.403, 461.286 )
 
 [node name="checkpoints" type="Node2D" parent="." index="1"]
+
+[node name="Checkpoint" parent="checkpoints" index="0" instance=ExtResource( 11 )]
+position = Vector2( 849, 431 )
+
+[node name="Checkpoint2" parent="checkpoints" index="1" instance=ExtResource( 11 )]
+position = Vector2( 1662, 326 )
+sprite_type = 16
+
+[node name="Checkpoint4" parent="checkpoints" index="2" instance=ExtResource( 11 )]
+position = Vector2( 403, 347 )
+
+[node name="Checkpoint3" parent="checkpoints" index="3" instance=ExtResource( 11 )]
+position = Vector2( 499, 485 )
+sprite_type = 16
+
+[node name="Checkpoint5" parent="checkpoints" index="4" instance=ExtResource( 11 )]
+position = Vector2( 2435, 485 )
+sprite_type = 16
 
 [node name="Floor" parent="Platforms" index="0" instance=ExtResource( 3 )]
 position = Vector2( 24, 528 )
@@ -161,7 +133,7 @@ scale = Vector2( 0.655423, 1.05529 )
 position = Vector2( 105.908, 422.87 )
 
 [node name="Plat18" parent="Platforms/Plat17" index="5" instance=ExtResource( 3 )]
-position = Vector2( -11.5731, 422.611 )
+position = Vector2( -16.1443, 421.652 )
 
 [node name="Plat16" parent="Platforms/Plat17" index="6" instance=ExtResource( 3 )]
 position = Vector2( 123.578, 1.22034 )
@@ -185,11 +157,11 @@ rotation = -1.573
 position = Vector2( 242.588, -28.989 )
 
 [node name="Plat16" parent="Platforms/Plat2" index="8" instance=ExtResource( 3 )]
-position = Vector2( 218.897, -109.853 )
+position = Vector2( 258.697, -146.471 )
 scale = Vector2( 0.46934, 0.51176 )
 
 [node name="Plat20" parent="Platforms/Plat2" index="9" instance=ExtResource( 3 )]
-position = Vector2( 109.922, -74.7612 )
+position = Vector2( 143.089, -83.9156 )
 scale = Vector2( 0.46934, 0.51176 )
 
 [node name="Plat15" parent="Platforms/Plat2" index="10" instance=ExtResource( 3 )]
@@ -200,22 +172,36 @@ position = Vector2( 484.532, 45.8223 )
 rotation = -1.573
 
 [node name="Plat3" parent="Platforms" index="6" instance=ExtResource( 3 )]
-position = Vector2( 840, 473 )
+position = Vector2( 569, 454 )
 scale = Vector2( 0.72, 0.35 )
 
-[node name="Plat4" parent="Platforms" index="7" instance=ExtResource( 3 )]
-position = Vector2( 944, 443 )
+[node name="Plat7" parent="Platforms" index="7" instance=ExtResource( 3 )]
+position = Vector2( 645, 383 )
+scale = Vector2( 0.72, 0.35 )
+
+[node name="Plat4" parent="Platforms" index="8" instance=ExtResource( 3 )]
+position = Vector2( 746, 442 )
 rotation = 1.5708
 scale = Vector2( 0.72, 0.35 )
 
-[node name="Plat15" parent="Platforms" index="8" instance=ExtResource( 3 )]
+[node name="Plat6" parent="Platforms" index="9" instance=ExtResource( 3 )]
+position = Vector2( 747, 356 )
+rotation = 1.5708
+scale = Vector2( 0.72, 0.35 )
+
+[node name="Plat5" parent="Platforms" index="10" instance=ExtResource( 3 )]
+position = Vector2( 989, 378 )
+rotation = 1.5708
+scale = Vector2( 0.72, 0.35 )
+
+[node name="Plat15" parent="Platforms" index="11" instance=ExtResource( 3 )]
 position = Vector2( 1793, 412 )
 scale = Vector2( 0.46938, 0.392284 )
 
 [node name="Plat14" parent="Platforms/Plat15" index="4" instance=ExtResource( 3 )]
 position = Vector2( 153.394, 145.303 )
 
-[node name="Plat8" parent="Platforms" index="9" instance=ExtResource( 3 )]
+[node name="Plat8" parent="Platforms" index="12" instance=ExtResource( 3 )]
 position = Vector2( 1384, 384 )
 scale = Vector2( 0.46938, 0.392284 )
 
@@ -238,7 +224,15 @@ position = Vector2( 479.355, 2.54913 )
 position = Vector2( 1086, 505 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Chandelier" parent="Objects" index="1" instance=ExtResource( 10 )]
+[node name="ChandlerUpAttack2" parent="Objects" index="1" instance=ExtResource( 8 )]
+position = Vector2( 2614, 510 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="ChandlerUpAttack3" parent="Objects" index="2" instance=ExtResource( 8 )]
+position = Vector2( 2801, 506 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Chandelier" parent="Objects" index="3" instance=ExtResource( 10 )]
 position = Vector2( 1408, 376 )
 scale = Vector2( 0.5, 0.5 )
 
@@ -248,7 +242,7 @@ max_objects = 2
 time_between_objects = 3
 
 [node name="MagicaDispenser2" parent="ObjectDispensers" index="1" instance=ExtResource( 7 )]
-position = Vector2( 754, 516 )
+position = Vector2( 1240, 500 )
 max_objects = 4
 time_between_objects = 6
 object_per_throw = 2
@@ -262,32 +256,17 @@ position = Vector2( 110, 301 )
 rotation = 1.5708
 deactivated = true
 
-[node name="Plat13" parent="ObjectDispensers" index="4" instance=ExtResource( 3 )]
-position = Vector2( 2246, 482 )
-script = SubResource( 3 )
-deactivated = true
-
-[node name="Plat14" parent="ObjectDispensers" index="5" instance=ExtResource( 3 )]
-position = Vector2( 2303, 433 )
-scale = Vector2( 0.52782, 1 )
-script = SubResource( 3 )
-deactivated = true
-
-[node name="Player" parent="." index="6" instance=ExtResource( 5 )]
-position = Vector2( -312, 476 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Player2" parent="." index="7" instance=ExtResource( 4 )]
+[node name="Player2" parent="." index="6" instance=ExtResource( 4 )]
 position = Vector2( -356, 473 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="SceneChangerTester" parent="." index="8" instance=ExtResource( 6 )]
+[node name="SceneChangerTester" parent="." index="7" instance=ExtResource( 6 )]
 position = Vector2( 2938, 368 )
 
 [node name="CollisionShape2D" parent="SceneChangerTester/Area2D" index="0"]
 position = Vector2( 128.125, -75.5 )
 
-[node name="Limits" type="Node2D" parent="." index="10"]
+[node name="Limits" type="Node2D" parent="." index="9"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Limits" index="0"]
 
@@ -301,23 +280,25 @@ shape = SubResource( 2 )
 position = Vector2( 3138, 334 )
 shape = SubResource( 2 )
 
-[node name="BackInTimeClock" parent="." index="11" instance=ExtResource( 9 )]
+[node name="BackInTimeClock" parent="." index="10" instance=ExtResource( 9 )]
 position = Vector2( 374, 517 )
 time_back = 12
 
-[node name="BackInTimeClock2" parent="." index="12" instance=ExtResource( 9 )]
-position = Vector2( 581, 517 )
+[node name="BackInTimeClock2" parent="." index="11" instance=ExtResource( 9 )]
+position = Vector2( 731, 341 )
 time_back = 6
 
-[node name="BackInTimeClock3" parent="." index="13" instance=ExtResource( 9 )]
-position = Vector2( 682, 516 )
-time_back = 6
+[node name="Player" parent="." index="12" instance=ExtResource( 5 )]
+position = Vector2( -286, 478 )
+scale = Vector2( 0.5, 0.5 )
 
+[connection signal="checkpoint_touched" from="checkpoints/Checkpoint" to="." method="_on_Checkpoint_checkpoint_touched"]
+[connection signal="checkpoint_touched" from="checkpoints/Checkpoint2" to="." method="_on_Checkpoint2_checkpoint_touched"]
 [connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_finished_throwing"]
 [connection signal="start_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_start_throwing"]
-[connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser3" to="ObjectDispensers/Plat13" method="_on_MagicaDispenser3_finished_throwing"]
-[connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser3" to="ObjectDispensers/Plat14" method="_on_MagicaDispenser3_finished_throwing"]
+[connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser3" to="Platforms/Plat17/Plat18" method="_on_MagicaDispenser3_finished_throwing"]
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
+[connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]
 
 [editable path="Platforms/Floor"]
 [editable path="SceneChangerTester"]

@@ -1,11 +1,19 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/spritesheet_ggh2_player.png" type="Texture" id=2]
-[ext_resource path="res://ShadersMaterials/MagicalMaterial.tres" type="Material" id=3]
+[ext_resource path="res://ShadersMaterials/Magical_Shader.tres" type="Shader" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.4059, 14.101 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 3 )
+shader_param/line_thickness = 1.0
+shader_param/sin_frequency = 0.247
+shader_param/sin_offset = 0.0
+shader_param/light_offset = 0.5
+shader_param/activate = false
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -184,11 +192,10 @@ position = Vector2( 12.8496, 13.899 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = ExtResource( 3 )
-position = Vector2( -13, 52 )
+material = SubResource( 10 )
+position = Vector2( 12, 15 )
 scale = Vector2( 1.66667, 1.29167 )
 texture = ExtResource( 2 )
-offset = Vector2( 15.3, -28.258 )
 hframes = 11
 frame = 6
 

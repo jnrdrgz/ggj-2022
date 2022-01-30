@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/8_Bits_pelea_de_guitarras.mp3-ea9a0772de718101f8ae59ebd78a9c0c.mp3str"
+
+[deps]
+
+source_file="res://Assets/8_Bits_pelea_de_guitarras.mp3"
+dest_files=[ "res://.import/8_Bits_pelea_de_guitarras.mp3-ea9a0772de718101f8ae59ebd78a9c0c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
