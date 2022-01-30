@@ -34,9 +34,6 @@ render_target_update_mode = 3
 
 [node name="Node2D" parent="ViewportContainer/Viewport" index="0" instance=ExtResource( 3 )]
 
-[node name="Sprite" parent="ViewportContainer/Viewport/Node2D/Player" index="1"]
-position = Vector2( -13, 52 )
-
 [node name="ViewportContainer2" type="ViewportContainer" parent="." index="6"]
 margin_left = 508.0
 margin_top = 5.0
@@ -63,4 +60,3 @@ script = ExtResource( 5 )
 [connection signal="mouse_entered" from="ViewportContainer2" to="." method="_on_ViewportContainer2_mouse_entered"]
 
 [editable path="ViewportContainer/Viewport/Node2D"]
-[editable path="ViewportContainer/Viewport/Node2D/Player"]

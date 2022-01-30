@@ -17,6 +17,8 @@ texture = ExtResource( 3 )
 polygon = PoolVector2Array( -948, -286, 2192, -238, 2215, 1337, -953, 1315 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -375, 805 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="SceneChangerTester" parent="." instance=ExtResource( 5 )]
 position = Vector2( 391, -209 )
@@ -291,5 +293,3 @@ position = Vector2( -243, 404 )
 scale = Vector2( 0.65, 0.65 )
 
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
-
-[editable path="Player"]

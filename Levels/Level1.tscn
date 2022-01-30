@@ -305,6 +305,7 @@ time_back = 6
 
 [node name="Player" parent="." index="12" instance=ExtResource( 5 )]
 position = Vector2( -310, 488 )
+scale = Vector2( 0.5, 0.5 )
 
 [connection signal="checkpoint_touched" from="checkpoints/Checkpoint" to="." method="_on_Checkpoint_checkpoint_touched"]
 [connection signal="checkpoint_touched" from="checkpoints/Checkpoint2" to="." method="_on_Checkpoint2_checkpoint_touched"]
@@ -312,6 +313,7 @@ position = Vector2( -310, 488 )
 [connection signal="start_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_start_throwing"]
 [connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser3" to="Platforms/Plat17/Plat18" method="_on_MagicaDispenser3_finished_throwing"]
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
+[connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]
 
 [editable path="Platforms/Floor"]
 [editable path="SceneChangerTester"]
