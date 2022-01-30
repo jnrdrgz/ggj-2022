@@ -32,4 +32,4 @@ func _on_SceneChangerTester__time_to_change_level():
 
 
 func _on_Node2D_arrived():
-	pass # Replace with function body.
+	player1_arrived = true

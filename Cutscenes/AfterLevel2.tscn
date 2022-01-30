@@ -98,6 +98,7 @@ position = Vector2( -6.21967, 4.32571 )
 texture = ExtResource( 4 )
 
 [node name="Plataformita15" type="Sprite" parent="."]
+visible = false
 position = Vector2( 446, 218 )
 rotation = 1.74846e-07
 scale = Vector2( 0.482351, 0.462357 )

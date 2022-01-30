@@ -250,23 +250,23 @@ position = Vector2( 453, 410 )
 max_objects = 2
 time_between_objects = 3
 
-[node name="MagicaDispenser2" parent="ObjectDispensers" index="1" instance=ExtResource( 7 )]
+[node name="MagicaDispenser4" parent="ObjectDispensers" index="1" instance=ExtResource( 7 )]
+position = Vector2( 1947, 353 )
+
+[node name="MagicaDispenser2" parent="ObjectDispensers" index="2" instance=ExtResource( 7 )]
 position = Vector2( 925, 517 )
 max_objects = 4
 time_between_objects = 6
 object_per_throw = 2
 
-[node name="MagicaDispenser" parent="ObjectDispensers/MagicaDispenser2" index="4" instance=ExtResource( 7 )]
-position = Vector2( 1022, -164 )
-
-[node name="MagicaDispenser3" parent="ObjectDispensers" index="2" instance=ExtResource( 7 )]
-position = Vector2( 2157, 515 )
-max_objects = 6
-time_between_objects = 2
+[node name="MagicaDispenser3" parent="ObjectDispensers" index="3" instance=ExtResource( 7 )]
+position = Vector2( 2158, 510 )
+max_objects = 9
+time_between_objects = 9
 object_per_throw = 3
 dispenser_type = 2
 
-[node name="Plat" parent="ObjectDispensers" index="3" instance=ExtResource( 3 )]
+[node name="Plat" parent="ObjectDispensers" index="4" instance=ExtResource( 3 )]
 position = Vector2( 110, 301 )
 rotation = 1.5708
 deactivated = true
@@ -309,6 +309,9 @@ scale = Vector2( 0.5, 0.5 )
 
 [connection signal="checkpoint_touched" from="checkpoints/Checkpoint" to="." method="_on_Checkpoint_checkpoint_touched"]
 [connection signal="checkpoint_touched" from="checkpoints/Checkpoint2" to="." method="_on_Checkpoint2_checkpoint_touched"]
+[connection signal="checkpoint_touched" from="checkpoints/Checkpoint4" to="." method="_on_Checkpoint4_checkpoint_touched"]
+[connection signal="checkpoint_touched" from="checkpoints/Checkpoint3" to="." method="_on_Checkpoint3_checkpoint_touched"]
+[connection signal="checkpoint_touched" from="checkpoints/Checkpoint5" to="." method="_on_Checkpoint5_checkpoint_touched"]
 [connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_finished_throwing"]
 [connection signal="start_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_start_throwing"]
 [connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser3" to="Platforms/Plat17/Plat18" method="_on_MagicaDispenser3_finished_throwing"]

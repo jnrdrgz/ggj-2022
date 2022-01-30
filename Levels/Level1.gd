@@ -25,3 +25,12 @@ func _on_Checkpoint_checkpoint_touched(pos):
 
 func _on_Checkpoint2_checkpoint_touched(pos):
 	Globals.lvl1_start_pos = pos
+
+func _on_Checkpoint4_checkpoint_touched(pos):
+	Globals.lvl1_start_pos = pos
+
+func _on_Checkpoint3_checkpoint_touched(pos):
+	Globals.lvl1_start_pos = pos
+
+func _on_Checkpoint5_checkpoint_touched(pos):
+	Globals.lvl1_start_pos = pos

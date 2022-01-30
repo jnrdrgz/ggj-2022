@@ -1,5 +1,5 @@
 extends Node2D
-var next_level = "res://Levels/Intro.tscn"
+var next_level = "res://Cutscenes/Intro.tscn"
 
 func _ready():
 	var new_dialog = Dialogic.start('afterlevel3')

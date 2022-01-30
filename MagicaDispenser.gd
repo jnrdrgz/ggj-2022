@@ -81,6 +81,8 @@ func _on_DispenseAnotherTimer_timeout():
 			#throw_magical_object()
 			throwed_objects += 1
 			#yield timer
+			
+			#every 6 / 3 per throw = 2  
 			yield(get_tree().create_timer(time_between_objects/object_per_throw), "timeout")
 		if throwed_objects == max_objects:
 			emit_signal("finished_throwing")
