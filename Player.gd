@@ -228,6 +228,7 @@ func respawn():
 
 func kill():
 	if !invincible:
+		Sound.play("die")
 		velocity = Vector2.ZERO
 		dead = true
 		$AnimationPlayer.play("die")

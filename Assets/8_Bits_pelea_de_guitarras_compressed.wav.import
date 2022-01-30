@@ -11,11 +11,11 @@ dest_files=[ "res://.import/8_Bits_pelea_de_guitarras_compressed.wav-6ceaacb8183
 
 [params]
 
-force/8_bit=false
+force/8_bit=true
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
-edit/trim=false
+edit/trim=true
 edit/normalize=false
-edit/loop=false
+edit/loop=true
 compress/mode=0
