@@ -101,6 +101,8 @@ func _process(delta):
 func _physics_process(delta):
 	#print("executing physics child")
 	#magnitud
+	if !player:
+		return
 	if ai_type == aitype_enum.NONE:
 		velocity = Vector2.ZERO
 		return

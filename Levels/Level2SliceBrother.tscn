@@ -17,8 +17,6 @@ texture = ExtResource( 3 )
 polygon = PoolVector2Array( -948, -286, 2192, -238, 2215, 1337, -953, 1315 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -393, 783 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="SceneChangerTester" parent="." instance=ExtResource( 5 )]
 position = Vector2( 391, -209 )
@@ -35,8 +33,16 @@ rotation = 1.58794
 position = Vector2( 395, -1008.33 )
 rotation = 1.58794
 
+[node name="Plat27" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 395, -1126.67 )
+rotation = 1.58794
+
 [node name="Plat26" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( -3.33337, -371.667 )
+rotation = 1.58794
+
+[node name="Plat28" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( -3.33337, -493.333 )
 rotation = 1.58794
 
 [node name="Plat15" parent="Platforms" instance=ExtResource( 1 )]
@@ -137,6 +143,22 @@ position = Vector2( 711, -462 )
 position = Vector2( 1027.67, -290.333 )
 rotation = -1.56839
 
+[node name="Plat15" parent="Platforms/Plat" instance=ExtResource( 1 )]
+position = Vector2( 1030, -458.334 )
+rotation = -1.56839
+
+[node name="Plat16" parent="Platforms/Plat" instance=ExtResource( 1 )]
+position = Vector2( 1031.67, -578.334 )
+rotation = -1.56839
+
+[node name="Plat17" parent="Platforms/Plat" instance=ExtResource( 1 )]
+position = Vector2( 1031.67, -688.333 )
+rotation = -1.56839
+
+[node name="Plat18" parent="Platforms/Plat" instance=ExtResource( 1 )]
+position = Vector2( 1035, -805 )
+rotation = -1.56839
+
 [node name="Plat11" parent="Platforms/Plat" instance=ExtResource( 1 )]
 position = Vector2( 1027.67, -168.667 )
 rotation = -1.56839
@@ -166,7 +188,7 @@ position = Vector2( 787.667, -218.667 )
 position = Vector2( 664.333, -218.667 )
 
 [node name="Plat9" parent="Platforms/Plat2" instance=ExtResource( 1 )]
-position = Vector2( 907.667, -217 )
+position = Vector2( 906.667, -218.333 )
 
 [node name="Plat12" parent="Platforms/Plat2" instance=ExtResource( 1 )]
 position = Vector2( 954.333, -460.333 )
@@ -179,6 +201,14 @@ position = Vector2( 711, -462 )
 
 [node name="Plat10" parent="Platforms/Plat2" instance=ExtResource( 1 )]
 position = Vector2( 1027.67, -290.333 )
+rotation = -1.56839
+
+[node name="Plat15" parent="Platforms/Plat2" instance=ExtResource( 1 )]
+position = Vector2( 1028.33, -458.333 )
+rotation = -1.56839
+
+[node name="Plat16" parent="Platforms/Plat2" instance=ExtResource( 1 )]
+position = Vector2( 1030, -585 )
 rotation = -1.56839
 
 [node name="Plat11" parent="Platforms/Plat2" instance=ExtResource( 1 )]
@@ -246,15 +276,20 @@ position = Vector2( -189, 46 )
 [node name="BackInTimeClock5" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( 273, -90 )
 
+[node name="MagicaDispenser3" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 136, 267 )
+
 [node name="MagicaDispenser" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 209, 257 )
+position = Vector2( 211, 260 )
 
 [node name="MagicaDispenser2" parent="Objects" instance=ExtResource( 6 )]
 position = Vector2( 168, 692 )
 dispenser_type = 2
 
 [node name="Chandelier" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( -256, 414 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -243, 404 )
+scale = Vector2( 0.65, 0.65 )
 
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
+
+[editable path="Player"]

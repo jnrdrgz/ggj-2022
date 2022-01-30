@@ -22,7 +22,7 @@ extents = Vector2( 12.25, 254.5 )
 script = ExtResource( 1 )
 
 [node name="Polygon2D" parent="." index="0"]
-polygon = PoolVector2Array( -519, -252, 3104, -247, 3108, 878, -526, 882, -523.403, 461.286 )
+polygon = PoolVector2Array( -519, -252, 3460, -239, 3464, 873, -526, 882, -523.403, 461.286 )
 
 [node name="checkpoints" type="Node2D" parent="." index="1"]
 
@@ -132,10 +132,13 @@ scale = Vector2( 0.655423, 1.05529 )
 [node name="Plat19" parent="Platforms/Plat17" index="4" instance=ExtResource( 3 )]
 position = Vector2( 105.908, 422.87 )
 
-[node name="Plat18" parent="Platforms/Plat17" index="5" instance=ExtResource( 3 )]
+[node name="Plat20" parent="Platforms/Plat17" index="5" instance=ExtResource( 3 )]
+position = Vector2( 226.44, 423.135 )
+
+[node name="Plat18" parent="Platforms/Plat17" index="6" instance=ExtResource( 3 )]
 position = Vector2( -16.1443, 421.652 )
 
-[node name="Plat16" parent="Platforms/Plat17" index="6" instance=ExtResource( 3 )]
+[node name="Plat16" parent="Platforms/Plat17" index="7" instance=ExtResource( 3 )]
 position = Vector2( 123.578, 1.22034 )
 
 [node name="Plat2" parent="Platforms" index="5" instance=ExtResource( 3 )]
@@ -201,6 +204,12 @@ scale = Vector2( 0.46938, 0.392284 )
 [node name="Plat14" parent="Platforms/Plat15" index="4" instance=ExtResource( 3 )]
 position = Vector2( 153.394, 145.303 )
 
+[node name="Plat15" parent="Platforms/Plat15" index="5" instance=ExtResource( 3 )]
+position = Vector2( 1009.84, 145.303 )
+
+[node name="Plat16" parent="Platforms/Plat15" index="6" instance=ExtResource( 3 )]
+position = Vector2( 532.617, 127.459 )
+
 [node name="Plat8" parent="Platforms" index="12" instance=ExtResource( 3 )]
 position = Vector2( 1384, 384 )
 scale = Vector2( 0.46938, 0.392284 )
@@ -242,13 +251,19 @@ max_objects = 2
 time_between_objects = 3
 
 [node name="MagicaDispenser2" parent="ObjectDispensers" index="1" instance=ExtResource( 7 )]
-position = Vector2( 1240, 500 )
+position = Vector2( 925, 517 )
 max_objects = 4
 time_between_objects = 6
 object_per_throw = 2
 
+[node name="MagicaDispenser" parent="ObjectDispensers/MagicaDispenser2" index="4" instance=ExtResource( 7 )]
+position = Vector2( 1022, -164 )
+
 [node name="MagicaDispenser3" parent="ObjectDispensers" index="2" instance=ExtResource( 7 )]
-position = Vector2( 2101, 513 )
+position = Vector2( 2157, 515 )
+max_objects = 6
+time_between_objects = 2
+object_per_throw = 3
 dispenser_type = 2
 
 [node name="Plat" parent="ObjectDispensers" index="3" instance=ExtResource( 3 )]
@@ -289,8 +304,7 @@ position = Vector2( 731, 341 )
 time_back = 6
 
 [node name="Player" parent="." index="12" instance=ExtResource( 5 )]
-position = Vector2( -286, 478 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -310, 488 )
 
 [connection signal="checkpoint_touched" from="checkpoints/Checkpoint" to="." method="_on_Checkpoint_checkpoint_touched"]
 [connection signal="checkpoint_touched" from="checkpoints/Checkpoint2" to="." method="_on_Checkpoint2_checkpoint_touched"]
@@ -298,7 +312,6 @@ scale = Vector2( 0.5, 0.5 )
 [connection signal="start_throwing" from="ObjectDispensers/MagicaDispenser" to="ObjectDispensers/Plat" method="_on_MagicaDispenser_start_throwing"]
 [connection signal="finished_throwing" from="ObjectDispensers/MagicaDispenser3" to="Platforms/Plat17/Plat18" method="_on_MagicaDispenser3_finished_throwing"]
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
-[connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]
 
 [editable path="Platforms/Floor"]
 [editable path="SceneChangerTester"]

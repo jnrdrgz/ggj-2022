@@ -41,20 +41,14 @@ visible = false
 visible = false
 
 [node name="Player" parent="." index="5" instance=ExtResource( 3 )]
-position = Vector2( 2177, 511 )
+position = Vector2( 2184, 495 )
 scale = Vector2( 0.5, 0.5 )
 deactivated = true
 
-[node name="Sprite" parent="Player" index="1"]
-position = Vector2( -13, 52 )
-
-[node name="Camera2D" parent="Player" index="3"]
-current = false
-
 [node name="Player2" parent="." index="6" instance=ExtResource( 5 )]
-position = Vector2( 1367, 388 )
+position = Vector2( 2074, 503 )
 scale = Vector2( 0.5, 0.5 )
-gravity = 1000
+gravity = 750
 player2_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player2" index="4"]
@@ -91,7 +85,27 @@ position = Vector2( 0, -184.608 )
 rotation = 1.5708
 scale = Vector2( 1.923, 1 )
 
-[node name="Plat5" parent="." index="9" instance=ExtResource( 4 )]
+[node name="Plat9" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 917, 471 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat10" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 919, 366 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat11" parent="." index="11" instance=ExtResource( 4 )]
+position = Vector2( 1000, 472 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat12" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 1000, 367 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat5" parent="." index="13" instance=ExtResource( 4 )]
 position = Vector2( 1648, 354 )
 scale = Vector2( 0.5, 0.5 )
 
@@ -111,7 +125,7 @@ rotation = 1.5708
 position = Vector2( 168, 120 )
 rotation = 1.5708
 
-[node name="SceneChangerTester" parent="." index="10" instance=ExtResource( 2 )]
+[node name="SceneChangerTester" parent="." index="14" instance=ExtResource( 2 )]
 position = Vector2( -395, 394 )
 
 [node name="Control" parent="CanvasLayer" index="0" instance=ExtResource( 7 )]
@@ -121,11 +135,11 @@ margin_right = 436.0
 margin_bottom = -73.0
 rect_scale = Vector2( 0.25, 0.25 )
 
-[node name="WinningCat" parent="." index="12" instance=ExtResource( 8 )]
+[node name="WinningCat" parent="." index="16" instance=ExtResource( 8 )]
 position = Vector2( 507, 512 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Limit" type="StaticBody2D" parent="." index="13"]
+[node name="Limit" type="StaticBody2D" parent="." index="17"]
 collision_layer = 3
 collision_mask = 3
 
@@ -133,7 +147,7 @@ collision_mask = 3
 position = Vector2( -519, 310 )
 shape = SubResource( 3 )
 
-[node name="Limit2" type="StaticBody2D" parent="." index="14"]
+[node name="Limit2" type="StaticBody2D" parent="." index="18"]
 collision_layer = 3
 collision_mask = 3
 
@@ -148,5 +162,4 @@ shape = SubResource( 3 )
 [connection signal="button_down" from="CanvasLayer/Control/IzquierdaButton" to="." method="_on_IzquierdaButton_button_down"]
 
 [editable path="Platforms/Floor"]
-[editable path="Player"]
 [editable path="CanvasLayer/Control"]

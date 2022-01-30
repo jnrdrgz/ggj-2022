@@ -52,6 +52,7 @@ func throw_magical_object():
 	var object = load(magicalObjectScenePath)
 	var mo = object.instance()
 	add_child(mo)
+	#call_deferred("add_child", mo)
 	mo.global_position = global_position
 	#mo.set_ai(Globals.aitype_enum.SEEK)
 	#mo.set_type()
@@ -76,7 +77,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_DispenseAnotherTimer_timeout():
 	for i in range(object_per_throw):
 		if max_objects != 0 and max_objects > throwed_objects:
-			throw_magical_object()
+			call_deferred("throw_magical_object")
+			#throw_magical_object()
 			throwed_objects += 1
 			#yield timer
 			yield(get_tree().create_timer(time_between_objects/object_per_throw), "timeout")
