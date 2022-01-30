@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Levels/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/Level2SliceBrother.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/Level2SliceSisterInherited.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Unpauser.gd" type="Script" id=5]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 2
@@ -49,3 +50,9 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Level2SliceSisterInherited" parent="ViewportContainer2/Viewport" index="0" instance=ExtResource( 4 )]
+
+[node name="Unpauser" type="Node2D" parent="." index="8"]
+pause_mode = 2
+script = ExtResource( 5 )
+
+[connection signal="mouse_entered" from="ViewportContainer2" to="." method="_on_ViewportContainer2_mouse_entered"]
