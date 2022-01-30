@@ -41,7 +41,7 @@ visible = false
 visible = false
 
 [node name="Player" parent="." index="5" instance=ExtResource( 3 )]
-position = Vector2( 2184, 495 )
+position = Vector2( 2327, 515 )
 scale = Vector2( 0.5, 0.5 )
 deactivated = true
 
