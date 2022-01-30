@@ -100,12 +100,22 @@ position = Vector2( 1000, 472 )
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Plat12" parent="." index="12" instance=ExtResource( 4 )]
+[node name="Plat13" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 1097, 471 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat14" parent="." index="13" instance=ExtResource( 4 )]
+position = Vector2( 808, 469 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plat12" parent="." index="14" instance=ExtResource( 4 )]
 position = Vector2( 1000, 367 )
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Plat5" parent="." index="13" instance=ExtResource( 4 )]
+[node name="Plat5" parent="." index="15" instance=ExtResource( 4 )]
 position = Vector2( 1648, 354 )
 scale = Vector2( 0.5, 0.5 )
 
@@ -125,7 +135,7 @@ rotation = 1.5708
 position = Vector2( 168, 120 )
 rotation = 1.5708
 
-[node name="SceneChangerTester" parent="." index="14" instance=ExtResource( 2 )]
+[node name="SceneChangerTester" parent="." index="16" instance=ExtResource( 2 )]
 position = Vector2( -395, 394 )
 
 [node name="Control" parent="CanvasLayer" index="0" instance=ExtResource( 7 )]
@@ -135,11 +145,11 @@ margin_right = 436.0
 margin_bottom = -73.0
 rect_scale = Vector2( 0.25, 0.25 )
 
-[node name="WinningCat" parent="." index="16" instance=ExtResource( 8 )]
+[node name="WinningCat" parent="." index="18" instance=ExtResource( 8 )]
 position = Vector2( 507, 512 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Limit" type="StaticBody2D" parent="." index="17"]
+[node name="Limit" type="StaticBody2D" parent="." index="19"]
 collision_layer = 3
 collision_mask = 3
 
@@ -147,7 +157,7 @@ collision_mask = 3
 position = Vector2( -519, 310 )
 shape = SubResource( 3 )
 
-[node name="Limit2" type="StaticBody2D" parent="." index="18"]
+[node name="Limit2" type="StaticBody2D" parent="." index="20"]
 collision_layer = 3
 collision_mask = 3
 
