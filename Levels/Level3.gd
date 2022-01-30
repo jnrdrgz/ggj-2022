@@ -13,6 +13,7 @@ func spawn_dialog(position, t):
 
 func _ready():
 	._ready()
+	Sound.stop("cut_music")
 	Sound.play("music")
 	var new_dialog = Dialogic.start('intructionslevel3')
 	new_dialog.connect("dialogic_signal", self, "dialog_listener")

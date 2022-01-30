@@ -12,6 +12,8 @@ func _ready():
 	start_position = global_position
 	if Globals.lvl2_start_pos != Vector2.ZERO:
 		$Player.global_position = Globals.lvl2_start_pos
+	Sound.stop("cut_music")
+	Sound.play("music")
 		
 func _process(delta):
 	if player_arrive and player2_arrive:

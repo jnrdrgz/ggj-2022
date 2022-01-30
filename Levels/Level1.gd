@@ -4,6 +4,7 @@ var next_level = "res://Cutscenes/AfterLevel2.tscn"
 
 func _ready():
 	._ready()
+	Sound.stop("cut_music")
 	Sound.play("music")
 	
 	if Globals.lvl1_start_pos != Vector2.ZERO:
