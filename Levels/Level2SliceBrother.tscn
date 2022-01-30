@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://DemoPlat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://BackInTimeClock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Chandelier.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=10]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends KinematicBody2D
@@ -268,15 +269,6 @@ script = ExtResource( 4 )
 texture = ExtResource( 3 )
 polygon = PoolVector2Array( -948, -286, 2192, -238, 2215, 1337, -953, 1315 )
 
-[node name="Player2" parent="." instance=ExtResource( 9 )]
-position = Vector2( -402, 796 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -375, 805 )
-scale = Vector2( 0.5, 0.5 )
-script = SubResource( 1 )
-
 [node name="SceneChangerTester" parent="." instance=ExtResource( 5 )]
 position = Vector2( 391, -209 )
 
@@ -527,7 +519,10 @@ position = Vector2( 122.667, -28.6667 )
 position = Vector2( -206, 537 )
 
 [node name="BackInTimeClock2" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( -442, 433 )
+position = Vector2( -301, 487 )
+
+[node name="BackInTimeClock3" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( -45, 324 )
 
 [node name="BackInTimeClock4" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( -189, 46 )
@@ -536,10 +531,15 @@ position = Vector2( -189, 46 )
 position = Vector2( 273, -90 )
 
 [node name="MagicaDispenser3" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 136, 267 )
+position = Vector2( 200, 123 )
+max_objects = 6
+time_between_objects = 3
 
 [node name="MagicaDispenser" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 211, 260 )
+position = Vector2( 115, 262 )
+max_objects = 10
+time_between_objects = 2
+dispenser_type = 2
 
 [node name="MagicaDispenser2" parent="Objects" instance=ExtResource( 6 )]
 position = Vector2( 168, 692 )
@@ -547,6 +547,25 @@ dispenser_type = 2
 
 [node name="Chandelier" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( -243, 404 )
-scale = Vector2( 0.65, 0.65 )
+scale = Vector2( 0.47262, 0.458743 )
+
+[node name="Checkpoint" parent="Objects" instance=ExtResource( 10 )]
+position = Vector2( 201, 82 )
+sprite_type = 16
+
+[node name="Checkpoint2" parent="Objects" instance=ExtResource( 10 )]
+position = Vector2( -426, 399 )
+
+[node name="Player2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -402, 796 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -375, 805 )
+scale = Vector2( 0.5, 0.5 )
+script = SubResource( 1 )
 
 [connection signal="_time_to_change_level" from="SceneChangerTester" to="." method="_on_SceneChangerTester__time_to_change_level"]
+[connection signal="checkpoint_touched" from="Objects/Checkpoint" to="." method="_on_Checkpoint_checkpoint_touched"]
+[connection signal="checkpoint_touched" from="Objects/Checkpoint2" to="." method="_on_Checkpoint2_checkpoint_touched"]
+[connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]

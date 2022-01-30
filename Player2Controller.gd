@@ -27,7 +27,7 @@ func update_queue(action):
 	if action == "jump": action_time = 0.1
 	player_movements_queue.append([action, action_time])
 	update_text()
-	print(player_movements_queue)	
+	#print(player_movements_queue)	
 
 func _on_DerechaButton_button_down():
 	action_time = OS.get_ticks_msec()

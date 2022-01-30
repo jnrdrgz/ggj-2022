@@ -1,6 +1,6 @@
 extends "res://Enemy.gd"
 
-var right_sprite = load("res://Assets/right_dialog_box.png")
+var right_sprite = load("res://Assets/blank_dialog_box.png")
 
 var dialog_type = "right"
 
@@ -16,9 +16,9 @@ func _physics_process(delta):
 func _on_Area2D2_body_entered(body):
 	if(body.is_in_group("player2")):
 		if dialog_type == "right":
-			body.mode_player_actions_queue.push_back(["walk_right", 500])
+			body.mode_player_actions_queue.push_back(["walk_right", 350])
 		if dialog_type == "left":
-			body.mode_player_actions_queue.push_back(["walk_left", 500])
+			body.mode_player_actions_queue.push_back(["walk_left", 250])
 		if dialog_type == "jump":
 			body.mode_player_actions_queue.push_back(["jump", 1])
 		queue_free()

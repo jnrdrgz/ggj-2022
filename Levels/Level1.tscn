@@ -260,7 +260,7 @@ time_between_objects = 6
 object_per_throw = 2
 
 [node name="MagicaDispenser3" parent="ObjectDispensers" index="3" instance=ExtResource( 7 )]
-position = Vector2( 2158, 510 )
+position = Vector2( 2159, 515 )
 max_objects = 9
 time_between_objects = 9
 object_per_throw = 3
