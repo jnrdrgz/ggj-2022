@@ -101,10 +101,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1.04811, 2.8 ),
+"times": PoolRealArray( 0, 0.3, 2.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ true, true, true ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -137,7 +137,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 22, 177.5 )
+extents = Vector2( 23, 185.5 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 30.875, 26.375 )
@@ -161,7 +161,7 @@ anims/idle = SubResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 14, -148.5 )
+position = Vector2( 15, -140.5 )
 shape = SubResource( 4 )
 
 [node name="Area2D2" type="Area2D" parent="."]
