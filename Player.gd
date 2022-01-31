@@ -227,7 +227,7 @@ func respawn():
 	dead = false
 
 func kill():
-	if !invincible:
+	if !invincible and !dead:
 		Sound.play("die")
 		velocity = Vector2.ZERO
 		dead = true
