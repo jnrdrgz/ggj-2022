@@ -21,8 +21,11 @@ polygon = PoolVector2Array( -196.984, -16.0149, -200, 1202.85, 1078.82, 1196.84,
 position = Vector2( 268, 432 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Camera2D" parent="Player" index="3"]
+[node name="Camera2D" parent="Player" index="0"]
 current = false
+
+[node name="Sprite" parent="Player" index="4"]
+position = Vector2( 10, 15 )
 
 [node name="Player2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 646, 430 )

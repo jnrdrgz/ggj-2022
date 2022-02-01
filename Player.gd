@@ -110,13 +110,14 @@ func get_input():
 	elif Input.is_action_pressed("up_arrow"):
 		if is_in_ladder:
 			velocity.y = -climbing_speed
-			play_anim("climbing")
+			#play_anim("climbing")
 	elif Input.is_action_pressed("down_arrow"):
 		if is_in_ladder:
 			velocity.y = climbing_speed
-			play_anim("climbing")
+			#play_anim("climbing")
 		if is_on_floor():
-			play_anim("downing")
+			pass
+			#play_anim("downing")
 	else:
 		if is_in_ladder:
 			velocity.y = 0
@@ -227,7 +228,7 @@ func respawn():
 	dead = false
 
 func kill():
-	print("kill")
+	print("kill player")
 	if !invincible and !dead:
 		Sound.play("die")
 		velocity = Vector2.ZERO
