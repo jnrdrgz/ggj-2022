@@ -48,8 +48,8 @@ modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 0.99
 margin_right = -460.0
-margin_bottom = -322.98
-rect_scale = Vector2( 1.8, 2.2 )
+margin_bottom = -325.98
+rect_scale = Vector2( 1.843, 2.293 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

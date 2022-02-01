@@ -9,15 +9,19 @@
 
 [node name="ChandlerUpAttack" parent="Up" instance=ExtResource( 2 )]
 position = Vector2( 15, 39 )
+can_kill = false
 
 [node name="ChandlerUpAttack2" parent="Up" instance=ExtResource( 2 )]
 position = Vector2( 111, 39 )
+can_kill = false
 
 [node name="ChandlerUpAttack3" parent="Up" instance=ExtResource( 2 )]
 position = Vector2( 214, 41 )
+can_kill = false
 
 [node name="ChandlerUpAttack4" parent="Up" instance=ExtResource( 2 )]
 position = Vector2( 307, 42 )
+can_kill = false
 
 [node name="Down" type="Node2D" parent="."]
 
