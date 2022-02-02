@@ -140,4 +140,7 @@ anims/idle = SubResource( 3 )
 position = Vector2( 21.5, 284 )
 shape = SubResource( 4 )
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

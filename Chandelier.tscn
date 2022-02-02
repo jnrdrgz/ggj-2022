@@ -20,6 +20,7 @@ position = Vector2( 214, 41 )
 position = Vector2( 307, 42 )
 
 [node name="Down" type="Node2D" parent="."]
+position = Vector2( -1, 54 )
 
 [node name="ChandelierChandler" parent="Down" instance=ExtResource( 1 )]
 position = Vector2( 66, 95 )

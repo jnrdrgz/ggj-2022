@@ -1,11 +1,12 @@
 extends Node2D
 
 onready var anim_player = $AnimationPlayer
-onready var attack_timer = $AttackTimer
+
 export (bool) var can_kill = true
+
+onready var attack_timer = $AttackTimer
 export (int) var time1 = 6
 export (int) var time2 = 3
-
 var time_attack_1 = true
 var time_attack_2 = false
 
