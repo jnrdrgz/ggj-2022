@@ -131,7 +131,7 @@ position = Vector2( 429, 502 )
 scale = Vector2( 0.229773, 0.304264 )
 
 [node name="Plat7" parent="Platforms/Plat13" index="4" instance=ExtResource( 3 )]
-position = Vector2( -317.705, 16.433 )
+position = Vector2( -322.057, 16.4331 )
 scale = Vector2( 1, 0.605574 )
 
 [node name="Plat9" parent="Platforms/Plat13" index="5" instance=ExtResource( 3 )]
@@ -165,10 +165,10 @@ position = Vector2( -909.593, -29.5796 )
 position = Vector2( -1027.1, -29.5796 )
 
 [node name="Plat21" parent="Platforms/Plat13" index="15" instance=ExtResource( 3 )]
-position = Vector2( -1148.96, -26.293 )
+position = Vector2( -1148.96, -29.5796 )
 
 [node name="Plat22" parent="Platforms/Plat13" index="16" instance=ExtResource( 3 )]
-position = Vector2( -1266.47, -26.293 )
+position = Vector2( -1270.82, -29.5796 )
 
 [node name="Plat11" parent="Platforms/Plat13" index="17" instance=ExtResource( 3 )]
 position = Vector2( -404.747, 46.0126 )
@@ -202,10 +202,10 @@ position = Vector2( -120.346, 24.4118 )
 scale = Vector2( 1, 0.450734 )
 
 [node name="Plat18" parent="Platforms/Plat2" index="5" instance=ExtResource( 3 )]
-position = Vector2( 120.346, 1.52576 )
+position = Vector2( 122.241, 3.33786e-06 )
 
 [node name="Plat19" parent="Platforms/Plat2" index="6" instance=ExtResource( 3 )]
-position = Vector2( 482.67, -76.3992 )
+position = Vector2( 483.652, -76.3287 )
 rotation = -1.573
 
 [node name="Plat14" parent="Platforms/Plat2" index="7" instance=ExtResource( 3 )]
@@ -223,15 +223,15 @@ scale = Vector2( 0.46934, 0.51176 )
 position = Vector2( 363.881, 0 )
 
 [node name="Plat17" parent="Platforms/Plat2" index="11" instance=ExtResource( 3 )]
-position = Vector2( 484.532, 45.8223 )
+position = Vector2( 484.041, 45.7908 )
 rotation = -1.573
 
 [node name="Plat3" parent="Platforms" index="6" instance=ExtResource( 3 )]
-position = Vector2( 569, 454 )
+position = Vector2( 565, 452 )
 scale = Vector2( 0.72, 0.35 )
 
 [node name="Plat7" parent="Platforms" index="7" instance=ExtResource( 3 )]
-position = Vector2( 645, 383 )
+position = Vector2( 644, 383 )
 scale = Vector2( 0.72, 0.35 )
 
 [node name="Plat4" parent="Platforms" index="8" instance=ExtResource( 3 )]
@@ -282,7 +282,7 @@ position = Vector2( 360.049, -6.10352e-05 )
 position = Vector2( 479.355, 2.54913 )
 
 [node name="ChandlerUpAttack" parent="Objects" index="0" instance=ExtResource( 8 )]
-position = Vector2( 1086, 505 )
+position = Vector2( 1046, 508 )
 scale = Vector2( 0.5, 0.5 )
 time1 = 2
 time2 = 4
@@ -313,28 +313,42 @@ time2 = 7
 time1 = 4
 time2 = 8
 
+[node name="ChandelierChandler" parent="Objects/Chandelier/Down" index="0"]
+max_drops = 3
+
+[node name="ChandelierChandler2" parent="Objects/Chandelier/Down" index="1"]
+max_drops = 3
+time1 = 4
+time2 = 2
+
+[node name="ChandelierChandler3" parent="Objects/Chandelier/Down" index="2"]
+max_drops = 3
+
 [node name="MagicaDispenser" parent="ObjectDispensers" index="0" instance=ExtResource( 7 )]
 position = Vector2( 453, 410 )
 max_objects = 2
 time_between_objects = 3
 
 [node name="MagicaDispenser4" parent="ObjectDispensers" index="1" instance=ExtResource( 7 )]
-position = Vector2( 1947, 353 )
+position = Vector2( 2060, 447 )
 
-[node name="MagicaDispenser2" parent="ObjectDispensers" index="2" instance=ExtResource( 7 )]
-position = Vector2( 925, 517 )
+[node name="MagicaDispenser5" parent="ObjectDispensers" index="2" instance=ExtResource( 7 )]
+position = Vector2( 2286, 455 )
+
+[node name="MagicaDispenser2" parent="ObjectDispensers" index="3" instance=ExtResource( 7 )]
+position = Vector2( 850, 518 )
 max_objects = 4
 time_between_objects = 6
 object_per_throw = 2
 
-[node name="MagicaDispenser3" parent="ObjectDispensers" index="3" instance=ExtResource( 7 )]
+[node name="MagicaDispenser3" parent="ObjectDispensers" index="4" instance=ExtResource( 7 )]
 position = Vector2( 2159, 515 )
 max_objects = 9
 time_between_objects = 9
 object_per_throw = 3
 dispenser_type = 2
 
-[node name="Plat" parent="ObjectDispensers" index="4" instance=ExtResource( 3 )]
+[node name="Plat" parent="ObjectDispensers" index="5" instance=ExtResource( 3 )]
 position = Vector2( 110, 301 )
 rotation = 1.5708
 deactivated = true
@@ -371,7 +385,15 @@ time_back = 12
 position = Vector2( 731, 341 )
 time_back = 6
 
-[node name="Player" parent="." index="12" instance=ExtResource( 5 )]
+[node name="BackInTimeClock3" parent="." index="12" instance=ExtResource( 9 )]
+position = Vector2( 1641, 372 )
+time_back = 6
+
+[node name="BackInTimeClock4" parent="." index="13" instance=ExtResource( 9 )]
+position = Vector2( 1079, 518 )
+time_back = 6
+
+[node name="Player" parent="." index="14" instance=ExtResource( 5 )]
 material = SubResource( 4 )
 position = Vector2( -301, 487 )
 scale = Vector2( 0.5, 0.5 )
