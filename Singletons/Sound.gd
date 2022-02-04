@@ -5,7 +5,7 @@ onready var cut_music = $CutMusic
 onready var back_in_time = $BackInTime
 onready var die = $DieSound
 
-var sound_enabled = false
+var sound_enabled = true
 
 func _ready():
 	pass

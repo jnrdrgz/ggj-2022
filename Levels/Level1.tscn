@@ -182,13 +182,14 @@ rotation = -1.57435
 scale = Vector2( 0.655423, 1.05529 )
 
 [node name="Plat19" parent="Platforms/Plat17" index="4" instance=ExtResource( 3 )]
-position = Vector2( 105.908, 422.87 )
+position = Vector2( 107.428, 423.82 )
 
 [node name="Plat20" parent="Platforms/Plat17" index="5" instance=ExtResource( 3 )]
 position = Vector2( 226.44, 423.135 )
 
 [node name="Plat18" parent="Platforms/Plat17" index="6" instance=ExtResource( 3 )]
-position = Vector2( -16.1443, 421.652 )
+position = Vector2( -7.0614, 423.462 )
+scale = Vector2( 0.936356, 1.00015 )
 
 [node name="Plat16" parent="Platforms/Plat17" index="7" instance=ExtResource( 3 )]
 position = Vector2( 123.578, 1.22034 )
@@ -344,7 +345,7 @@ object_per_throw = 2
 [node name="MagicaDispenser3" parent="ObjectDispensers" index="4" instance=ExtResource( 7 )]
 position = Vector2( 2159, 515 )
 max_objects = 9
-time_between_objects = 9
+time_between_objects = 3
 object_per_throw = 3
 dispenser_type = 2
 
@@ -354,7 +355,7 @@ rotation = 1.5708
 deactivated = true
 
 [node name="Player2" parent="." index="6" instance=ExtResource( 4 )]
-position = Vector2( -356, 473 )
+position = Vector2( -353, 515 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="SceneChangerTester" parent="." index="7" instance=ExtResource( 6 )]
@@ -395,7 +396,7 @@ time_back = 6
 
 [node name="Player" parent="." index="14" instance=ExtResource( 5 )]
 material = SubResource( 4 )
-position = Vector2( -301, 487 )
+position = Vector2( -309, 516 )
 scale = Vector2( 0.5, 0.5 )
 
 [connection signal="checkpoint_touched" from="checkpoints/Checkpoint" to="." method="_on_Checkpoint_checkpoint_touched"]

@@ -250,7 +250,6 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			$AIMenu.visible = !$AIMenu.visible
 
 onready var expPath = "res://Explosion.tscn"
-
 func spawn_explosion():
 	var object = load(expPath)
 	var mo = object.instance()
